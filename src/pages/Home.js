@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchBestPodcasts } from "../store/fetchActions";
 import Podcast from "../components/Podcast";
 
@@ -16,7 +17,9 @@ const Home = () => {
       <h2>popcasts</h2>
       {podcasts &&
         podcasts.map((podcast) => (
-          <Podcast key={podcast.id} podcast={podcast} />
+          <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
+            <Podcast podcast={podcast} />
+          </Link>
         ))}
     </div>
   );
