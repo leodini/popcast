@@ -23,7 +23,9 @@ const Podcast = () => {
         episodes.map((episode) => (
           <div className="podcast" key={episode.id}>
             <span>{episode.title}</span>
-            <audio src={episode.audio}></audio>
+            <audio controls>
+              <source src={episode.audio} type="audio/mpeg" />
+            </audio>
           </div>
         ))}
     </div>
