@@ -3,7 +3,7 @@ import React from "react";
 const Podcast = ({ podcast }) => {
   return (
     <>
-      <h3>{podcast.title}</h3>
+      <p>{podcast.title_original}</p>
       <img src={podcast.image} alt="" />
     </>
   );
