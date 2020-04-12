@@ -15,8 +15,8 @@ const Message = ({ message }) => {
   return (
     <React.Fragment>
       {message && (
-        <div className="message">
-          <span>{message}</span>
+        <div className="message-box">
+          <span className="message">{message}</span>
         </div>
       )}
     </React.Fragment>

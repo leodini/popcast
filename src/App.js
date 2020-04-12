@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Routes from "./Routes";
 import Messages from "./components/Messages";
+import Player from "./components/Player";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Provider store={store}>
       <Routes />
       <Messages />
+      <Player />
     </Provider>
   );
 }
