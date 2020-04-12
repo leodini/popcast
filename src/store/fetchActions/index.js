@@ -8,7 +8,7 @@ export const fetchBestPodcasts = () => {
     api
       .get("/best_podcasts?region=br")
       .then((res) => dispatch(podcasts(res.data.podcasts)))
-      .catch((err) => dispatch(addMessage(err)));
+      .catch((err) => dispatch(addMessage(err.message)));
   };
 };
 
@@ -17,7 +17,7 @@ export const fetchPodcast = (podcastId) => {
     api
       .get(`/podcasts/${podcastId}`)
       .then((res) => dispatch(podcast(res.data)))
-      .catch((err) => dispatch(addMessage(err)));
+      .catch((err) => dispatch(addMessage(err.message)));
   };
 };
 
@@ -30,6 +30,6 @@ export const searchPodcast = (name) => {
         },
       })
       .then((res) => dispatch(podcasts(res.data.results)))
-      .catch((err) => dispatch(addMessage(err)));
+      .catch((err) => dispatch(addMessage(err.message)));
   };
 };
