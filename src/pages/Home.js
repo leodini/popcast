@@ -16,8 +16,10 @@ const Home = () => {
 
   return (
     <div>
-      <h2 className="title">popcasts</h2>
-      <Search />
+      <div className="container">
+        <h2 className="title">Popcasts</h2>
+        <Search />
+      </div>
       {podcasts &&
         podcasts.map((podcast) => (
           <div className="grid-container">

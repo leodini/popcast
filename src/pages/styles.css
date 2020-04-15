@@ -1,9 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 .title{
+    font-family: 'Montserrat', sans-serif;
     color: #F62459;
+    margin: 15px;
   }
 
 .grid-container{
     display: inline-grid;
     row-gap: 50px;
     column-gap: 50px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
