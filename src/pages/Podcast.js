@@ -21,7 +21,7 @@ const Podcast = () => {
       <img src={podcast.image} alt={podcast.title} />
       {episodes &&
         episodes.map((episode) => (
-          <div className="podcast" key={episode.id}>
+          <div className="grid-container" key={episode.id}>
             <span>{episode.title}</span>
             <audio controls>
               <source src={episode.audio} type="audio/mpeg" />

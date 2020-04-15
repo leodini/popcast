@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { fetchBestPodcasts } from "../store/fetchActions";
 import Podcast from "../components/Podcast";
 import Search from "../components/Search";
+import "./styles.css";
 
 const Home = () => {
   const podcasts = useSelector((state) => state.podcastsReducer.podcasts);
@@ -15,13 +16,15 @@ const Home = () => {
 
   return (
     <div>
-      <h2>popcasts</h2>
+      <h2 className="title">popcasts</h2>
       <Search />
       {podcasts &&
         podcasts.map((podcast) => (
-          <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
-            <Podcast podcast={podcast} />
-          </Link>
+          <div className="grid-container">
+            <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
+              <Podcast podcast={podcast} />
+            </Link>
+          </div>
         ))}
     </div>
   );

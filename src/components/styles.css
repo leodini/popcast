@@ -5,12 +5,12 @@
     z-index: 5;
     padding: 15px;
     box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-    background: #794bc4;
+    background: #18181b;
     animation: fade 0.3s;
 }
 
 .message{
-    color: #fff;
+    color: #F62459;
     text-align: center;
 }
 
@@ -26,7 +26,7 @@
     right: 0;
     text-align: center;
 
-    background-color: #794bc4;
+    background-color: #18181b;
     padding: 12px;
     padding-top: 4px;
     padding-bottom: 6px;
@@ -50,7 +50,7 @@
     transition: 0.1s;
 }
 .cs_audio_bar_now {
-    background-color: lime;
+    background-color: #F62459;
     width: 0%;
     height: 6px;
     position: absolute;
@@ -66,7 +66,9 @@
     margin-bottom: 4px;
 }
 
-
+.podcastItem{
+    margin: 5px;
+}
 
 
 @keyframes fade{

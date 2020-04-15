@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  overflow: hidden;
+}
+
+body{
+  background: #1f1f23;
 }
 

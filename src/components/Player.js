@@ -18,11 +18,14 @@ const Player = () => {
               fontSize: "0.87em",
             }}
           >
-            <span id="cs_audio_current_time">0:0</span>
+            <span className="cs_audio_current_time">0:0</span>
           </span>
-          <span id="cs_play_pause_btn" style={{ position: "relative" }}>
+          <span
+            className="cs_play_pause_btn"
+            style={{ position: "relative", color: "#F62459" }}
+          >
             {/* <i className="far fa-play-circle" id="cs_audio_play"></i> */}
-            <FaPlayCircle style={{ margin: "5px" }} />
+            <FaPlayCircle style={{ margin: "5px", color: "#F62459" }} />
             {/* <i className="far fa-pause-circle" id="cs_audio_pause"></i> */}
             <FaPause
               className="far fa-pause-circle"
@@ -44,6 +47,7 @@ const Player = () => {
                 verticalAlign: "middle",
                 fontSize: "1.14em",
                 margin: "5px",
+                color: "#F62459",
               }}
               className="fas fa-volume-down"
             ></FaVolumeDown>
@@ -62,7 +66,7 @@ const Player = () => {
                 style={{
                   height: "6px",
                   width: "28px",
-                  backgroundColor: "red",
+                  backgroundColor: "#F62459",
                   position: "absolute",
                 }}
               ></div>
