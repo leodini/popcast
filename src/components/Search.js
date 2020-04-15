@@ -3,22 +3,22 @@ import { useDispatch } from "react-redux";
 import { searchPodcast } from "../store/fetchActions";
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  const [term, setTerm] = useState("");
   const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
+  const handleTerm = (e) => {
     e.preventDefault();
-    if (!!search) {
-      dispatch(searchPodcast(search));
+    if (!!term) {
+      dispatch(searchPodcast(term));
     }
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleTerm}>
       <input
         type="text"
         placeholder="procure seu podcast favorito"
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => setTerm(e.target.value)}
       />
       <button type="submit">procurar</button>
     </form>

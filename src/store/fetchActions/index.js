@@ -21,15 +21,28 @@ export const fetchPodcast = (podcastId) => {
   };
 };
 
+// export const searchPodcast = (name) => {
+//   return (dispatch) => {
+//     api
+//       .get("/search?only_in=title", {
+//         params: {
+//           q: name,
+//         },
+//       })
+//       .then((res) => dispatch(podcasts(res.data.results)))
+//       .catch((err) => dispatch(addMessage(err.message)));
+//   };
+// };
+
 export const searchPodcast = (name) => {
   return (dispatch) => {
     api
-      .get("/search?only_in=title", {
+      .get(`/typeahead?show_podcasts=1`, {
         params: {
           q: name,
         },
       })
-      .then((res) => dispatch(podcasts(res.data.results)))
+      .then((res) => dispatch(podcasts(res.data.podcasts)))
       .catch((err) => dispatch(addMessage(err.message)));
   };
 };

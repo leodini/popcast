@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchBestPodcasts } from "../store/fetchActions";
 import Podcast from "../components/Podcast";
-import Search from "../components/Search";
 import "./styles.css";
 
 const Home = () => {
@@ -16,14 +15,10 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container">
-        <h2 className="title">Popcasts</h2>
-        <Search />
-      </div>
       {podcasts &&
         podcasts.map((podcast) => (
-          <div className="grid-container">
-            <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
+          <div className="grid-container" key={podcast.id}>
+            <Link to={`/podcast/${podcast.id}`}>
               <Podcast podcast={podcast} />
             </Link>
           </div>
