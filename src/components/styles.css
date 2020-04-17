@@ -70,6 +70,14 @@
     margin-bottom: 4px;
 }
 
+/* progress bar percentage */
+.filler{
+    background: #F62459;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .2s ease-in;
+}
+
 .podcastItem{
     margin: 5px;
 }

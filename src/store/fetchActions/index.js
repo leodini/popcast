@@ -3,6 +3,7 @@ import { podcasts } from "../ducks/podcastsReducer";
 import { podcast } from "../ducks/podcastReducer";
 import { addMessage } from "../ducks/messageReducer";
 
+//fetch best podcasts of the home page
 export const fetchBestPodcasts = () => {
   return (dispatch) => {
     api
@@ -12,6 +13,7 @@ export const fetchBestPodcasts = () => {
   };
 };
 
+//fetch the list of episodes for a podcast
 export const fetchPodcast = (podcastId) => {
   return (dispatch) => {
     api
@@ -34,6 +36,7 @@ export const fetchPodcast = (podcastId) => {
 //   };
 // };
 
+//search for a specific podcast author
 export const searchPodcast = (name) => {
   return (dispatch) => {
     api

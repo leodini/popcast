@@ -11,6 +11,10 @@ const Podcast = () => {
   );
   const dispatch = useDispatch();
 
+  const getEpisode = (episode) => {
+    console.log(episode);
+  };
+
   useEffect(() => {
     dispatch(fetchPodcast(params.id));
   }, [dispatch, params.id]);
@@ -23,6 +27,7 @@ const Podcast = () => {
         episodes.map((episode) => (
           <div className="grid-container" key={episode.id}>
             <span>{episode.title}</span>
+            <button onClick={() => getEpisode(episode)}>play</button>
             <audio controls>
               <source src={episode.audio} type="audio/mpeg" />
             </audio>

@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import {} from "../store/ducks/podcastReducer";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
 import "./styles.css";
 
 const Player = () => {
+  const [time, setTime] = useState(560);
+  const [percentage, setPercentage] = useState(56);
+
+  const getTime = (time) => {
+    //checks if the time is a number
+    if (!isNaN(time)) {
+      //convert the time from seconds into minutes already formated
+      return (
+        Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+      );
+    }
+  };
+
+  const getPercentage = (percentage) => {
+    setTimeout(() => {
+      setPercentage((percentage / time) * 100 + 1);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    getPercentage(percentage);
+  }, [percentage]);
+
   return (
     <React.Fragment>
-      <audio controls>
+      {/* <audio controls>
         <source src="path-to-music.mp3" type="audio/mpeg" />
-      </audio>
+      </audio> */}
       <div style={{ textAlign: "center" }}>
         <div id="cs_audioplayer">
           <span
@@ -18,7 +43,7 @@ const Player = () => {
               fontSize: "0.87em",
             }}
           >
-            <span className="cs_audio_current_time">0:0</span>
+            <span className="cs_audio_current_time">{getTime(time)}</span>
           </span>
           <span
             className="cs_play_pause_btn"
@@ -83,9 +108,10 @@ const Player = () => {
             }}
           ></span>
           <div className="cs_audio_bar">
-            <div className="cs_audio_bar_now"></div>
+            <div className="filler" style={{ width: `${percentage}%` }}></div>
             <div className="cs_audio_bar_loaded"></div>
           </div>
+          {/* <audio ref={(ref) => (podcast = ref)} /> */}
         </div>
       </div>
     </React.Fragment>
