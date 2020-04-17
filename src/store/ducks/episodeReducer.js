@@ -4,10 +4,10 @@ const INITIAL_STATE = {
   episode: {},
 };
 
-export const getEpisode = createAction("GET_EPISODE");
+export const addEpisode = createAction("ADD_EPISODE");
 
 export default createReducer(INITIAL_STATE, {
-  [getEpisode.type]: (state, action) => ({
+  [addEpisode.type]: (state, action) => ({
     ...state,
     episode: { ...state, episode: action.payload },
   }),

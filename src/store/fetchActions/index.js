@@ -23,19 +23,6 @@ export const fetchPodcast = (podcastId) => {
   };
 };
 
-// export const searchPodcast = (name) => {
-//   return (dispatch) => {
-//     api
-//       .get("/search?only_in=title", {
-//         params: {
-//           q: name,
-//         },
-//       })
-//       .then((res) => dispatch(podcasts(res.data.results)))
-//       .catch((err) => dispatch(addMessage(err.message)));
-//   };
-// };
-
 //search for a specific podcast author
 export const searchPodcast = (name) => {
   return (dispatch) => {
