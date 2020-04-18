@@ -3,7 +3,7 @@ import { FaPlayCircle } from "react-icons/fa";
 import { MdQueueMusic } from "react-icons/md";
 import "./styles.css";
 
-const Episodes = ({ episode, getEpisode }) => {
+const Episode = ({ episode, getEpisode, addToQueue }) => {
   return (
     <div className="episodes">
       <span className="episode-title">{episode.title}</span>
@@ -12,10 +12,11 @@ const Episodes = ({ episode, getEpisode }) => {
         style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer" }}
       />
       <MdQueueMusic
+        onClick={() => addToQueue(episode)}
         style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer" }}
       />
     </div>
   );
 };
 
-export default Episodes;
+export default Episode;

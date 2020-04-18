@@ -8,13 +8,13 @@ const Player = () => {
   const [percentage, setPercentage] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  const title = useSelector((state) => state.podcastReducer.episode.title);
-  const audio = useSelector((state) => state.podcastReducer.episode.audio);
+  const title = useSelector((state) => state.episodeReducer.episode.title);
+  const audio = useSelector((state) => state.episodeReducer.episode.audio);
   const maybe_audio_invalid = useSelector(
-    (state) => state.podcastReducer.episode.maybe_audio_invalid
+    (state) => state.episodeReducer.episode.maybe_audio_invalid
   );
   const audio_length = useSelector(
-    (state) => state.podcastReducer.episode.audio_length_sec
+    (state) => state.episodeReducer.episode.audio_length_sec
   );
 
   const dispatch = useDispatch();

@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../store/fetchActions";
-import { addEpisode } from "../store/ducks/podcastReducer";
-import Episodes from "../components/Episodes";
+import { addEpisode, addEpisodeToQueue } from "../store/ducks/episodeReducer";
+import Episode from "../components/Episode";
 import "./styles.css";
+import { addMessage } from "../store/ducks/messageReducer";
 
 const Podcast = () => {
   const params = useParams();
@@ -16,6 +17,11 @@ const Podcast = () => {
 
   const getEpisode = (episode) => {
     dispatch(addEpisode(episode));
+  };
+
+  const addToQueue = (episode) => {
+    dispatch(addEpisodeToQueue(episode));
+    dispatch(addMessage(`${episode.title} added to queue`));
   };
 
   useEffect(() => {
@@ -32,8 +38,9 @@ const Podcast = () => {
       <div className="episode-container">
         {episodes &&
           episodes.map((episode) => (
-            <Episodes
+            <Episode
               key={episode.id}
+              addToQueue={addToQueue}
               episode={episode}
               getEpisode={getEpisode}
             />
