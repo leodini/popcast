@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
+import { addMessage } from "../store/ducks/messageReducer";
 import "./styles.css";
 
 const Player = () => {
@@ -15,6 +16,8 @@ const Player = () => {
   const audio_length = useSelector(
     (state) => state.podcastReducer.episode.audio_length_sec
   );
+
+  const dispatch = useDispatch();
 
   const getTime = (time) => {
     //checks if the time is a number
@@ -32,8 +35,12 @@ const Player = () => {
   };
 
   useEffect(() => {
-    getPercentage(percentage);
-  }, [percentage]);
+    dispatch(addMessage(`Now playing ${title}`));
+  }, [dispatch]);
+
+  useEffect(() => {
+    getPercentage(currentTime);
+  }, [percentage, currentTime, getPercentage]);
 
   return (
     <>
