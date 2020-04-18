@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../store/fetchActions";
 import { addEpisode } from "../store/ducks/podcastReducer";
+import Episodes from "../components/Episodes";
 
 const Podcast = () => {
   const params = useParams();
@@ -24,12 +25,14 @@ const Podcast = () => {
     <div className="container">
       <p>{podcast.title}</p>
       <img src={podcast.image} alt={podcast.title} />
+
       {episodes &&
         episodes.map((episode) => (
-          <div className="grid-container" key={episode.id}>
-            <span>{episode.title}</span>
-            <button onClick={() => getEpisode(episode)}>play</button>
-          </div>
+          <Episodes
+            episode={episode}
+            key={episode.id}
+            getEpisode={getEpisode}
+          />
         ))}
     </div>
   );
