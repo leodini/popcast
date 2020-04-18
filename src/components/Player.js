@@ -35,8 +35,10 @@ const Player = () => {
   };
 
   useEffect(() => {
-    dispatch(addMessage(`Now playing ${title}`));
-  }, [dispatch]);
+    if (!!title) {
+      dispatch(addMessage(`Now playing ${title}`));
+    }
+  }, [dispatch, title]);
 
   useEffect(() => {
     getPercentage(currentTime);
