@@ -14,6 +14,17 @@
     text-align: center;
 }
 
+.episodes{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.episode-title{
+    color: #fff;
+    margin: 5px;
+}
+
 .cs_audio_current_time{
     color: #F62459;
 }

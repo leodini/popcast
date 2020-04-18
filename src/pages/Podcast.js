@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../store/fetchActions";
 import { addEpisode } from "../store/ducks/podcastReducer";
 import Episodes from "../components/Episodes";
+import "./styles.css";
 
 const Podcast = () => {
   const params = useParams();
@@ -23,17 +24,21 @@ const Podcast = () => {
 
   return (
     <div className="container">
-      <p>{podcast.title}</p>
-      <img src={podcast.image} alt={podcast.title} />
+      <div className="podcast-container">
+        <p className="podcast-title">{podcast.title}</p>
+        <img src={podcast.image} alt={podcast.title} />
+      </div>
 
-      {episodes &&
-        episodes.map((episode) => (
-          <Episodes
-            episode={episode}
-            key={episode.id}
-            getEpisode={getEpisode}
-          />
-        ))}
+      <div className="episode-container">
+        {episodes &&
+          episodes.map((episode) => (
+            <Episodes
+              key={episode.id}
+              episode={episode}
+              getEpisode={getEpisode}
+            />
+          ))}
+      </div>
     </div>
   );
 };
