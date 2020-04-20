@@ -1,3 +1,7 @@
+:root {
+    --main-color: #F62459;
+}
+
 .message-box{
     position: absolute;
     right: 20px;
@@ -10,7 +14,7 @@
 }
 
 .message{
-    color: #F62459;
+    color: var(--main-color);
     text-align: center;
 }
 
@@ -26,7 +30,7 @@
 }
 
 .cs_audio_current_time{
-    color: #F62459;
+    color: var(--main-color);
 }
 
 #cs_audio {
@@ -65,7 +69,7 @@
     transition: 0.1s;
 }
 .cs_audio_bar_now {
-    background-color: #F62459;
+    background-color: var(--main-color);
     width: 0%;
     height: 6px;
     position: absolute;
@@ -83,7 +87,7 @@
 
 /* progress bar percentage */
 .filler{
-    background: #F62459;
+    background: var(--main-color);
     height: 100%;
     border-radius: inherit;
     transition: width .2s ease-in;
@@ -105,13 +109,13 @@
     background: transparent;
     border: none;
     color: #fff;
-    border-bottom: 1px solid #F62459;
+    border-bottom: 1px solid var(--main-color);
 }
 
 /* header */
 .title{
     font-family: 'Montserrat', sans-serif;
-    color: #F62459;
+    color: var(--main-color);
     margin: 15px;
     text-decoration: none;
   }

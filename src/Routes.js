@@ -9,6 +9,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/podcast/:id" component={Podcast} />
+        {/* <Route path="/search/:query" component={} /> */}
       </Switch>
     </BrowserRouter>
   );
