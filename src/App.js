@@ -4,13 +4,12 @@ import store from "./store";
 import Routes from "./Routes";
 import Messages from "./components/Messages";
 import Player from "./components/Player";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import "./App.css";
 
 function App() {
   return (
     <Provider store={store}>
-      <Header title="Popcasts" />
       <Routes />
       <Messages />
       <Player />

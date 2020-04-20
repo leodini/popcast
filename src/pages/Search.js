@@ -1,22 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchBestPodcasts } from "../store/fetchActions";
+
 import Podcast from "../components/Podcast";
 import Header from '../components/Header'
+
 import "./styles.css";
 
 const Home = () => {
   const podcasts = useSelector((state) => state.podcastsReducer.podcasts);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchBestPodcasts());
-  }, [dispatch]);
 
   return (
     <div>
       <Header/>
+
       {podcasts &&
         podcasts.map((podcast) => (
           <div className="grid-container" key={podcast.id}>

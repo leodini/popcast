@@ -1,10 +1,14 @@
 import React from "react";
 import Search from "./Search";
+import { Link } from 'react-router-dom'
 
-const Header = (props) => {
+//set default title to popcast
+const Header = ({title = 'Popcast'}) => {
   return (
     <div className="container">
-      <h2 className="title">{props.title}</h2>
+      <Link to="/">
+        <h2 className="title">{title}</h2>
+      </Link>
       <Search />
     </div>
   );

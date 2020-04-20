@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../store/fetchActions";
 import { addEpisode, addEpisodeToQueue } from "../store/ducks/episodeReducer";
 import Episode from "../components/Episode";
+import Header from '../components/Header'
 import "./styles.css";
 import { addMessage } from "../store/ducks/messageReducer";
 
@@ -29,24 +30,29 @@ const Podcast = () => {
   }, [dispatch, params.id]);
 
   return (
-    <div className="container">
-      <div className="podcast-container">
-        <p className="podcast-title">{podcast.title}</p>
-        <img src={podcast.image} alt={podcast.title} />
-      </div>
+    <>
+      <Header/>
+      <div className="container">
+        <div className="podcast-container">
+          <p className="podcast-title">{podcast.title}</p>
+          <img src={podcast.image} alt={podcast.title} />
+        </div>
 
-      <div className="episode-container">
-        {episodes &&
-          episodes.map((episode) => (
-            <Episode
-              key={episode.id}
-              addToQueue={addToQueue}
-              episode={episode}
-              getEpisode={getEpisode}
-            />
-          ))}
+        <div className="episode-container">
+
+          {episodes &&
+            episodes.map((episode) => (
+              <Episode
+                key={episode.id}
+                addToQueue={addToQueue}
+                episode={episode}
+                getEpisode={getEpisode}
+              />
+            ))}
+
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

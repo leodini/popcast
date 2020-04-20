@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { FaSearch } from "react-icons/fa";
 import { searchPodcast } from "../store/fetchActions";
+import { useHistory } from 'react-router-dom'
 import "./styles.css";
 
 const Search = () => {
   const [term, setTerm] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const handleTerm = (e) => {
     e.preventDefault();
     if (!!term) {
       dispatch(searchPodcast(term));
     }
+    history.push('/search')
   };
 
   return (
