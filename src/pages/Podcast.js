@@ -11,9 +11,7 @@ import { addMessage } from "../store/ducks/messageReducer";
 const Podcast = () => {
   const params = useParams();
   const podcast = useSelector((state) => state.podcastReducer.podcast);
-  const episodes = useSelector(
-    (state) => state.podcastReducer.podcast.episodes
-  );
+  const episodes = useSelector((state) => state.podcastReducer.podcast.episodes);
   const dispatch = useDispatch();
 
   const getEpisode = (episode) => {
@@ -51,6 +49,7 @@ const Podcast = () => {
             ))}
 
         </div>
+        
       </div>
     </>
   );

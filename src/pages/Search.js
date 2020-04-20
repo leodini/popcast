@@ -14,14 +14,16 @@ const Home = () => {
     <div>
       <Header/>
 
-      {podcasts &&
-        podcasts.map((podcast) => (
-          <div className="grid-container" key={podcast.id}>
-            <Link to={`/podcast/${podcast.id}`}>
-              <Podcast podcast={podcast} />
-            </Link>
-          </div>
-        ))}
+        {
+            podcasts && podcasts.map(podcast => (
+                <div className="grid-container" key={podcast.id}>
+                    <Link to={`/podcast/${podcast.id}`}>
+                        <Podcast podcast={podcast} />
+                    </Link>
+                </div>
+            ))
+        }
+
     </div>
   );
 };

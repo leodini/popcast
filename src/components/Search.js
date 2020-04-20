@@ -7,6 +7,7 @@ import "./styles.css";
 
 const Search = () => {
   const [term, setTerm] = useState("");
+  
   const dispatch = useDispatch();
   const history = useHistory()
 
