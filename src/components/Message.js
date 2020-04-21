@@ -30,10 +30,7 @@ const Message = ({ message }) => {
   return (
     <div>
       <Snackbar
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right'}}
         open={open}
         autoHideDuration={2500}
         onClose={handleClose}
