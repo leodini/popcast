@@ -12,7 +12,6 @@ const Search = () => {
   const handleTerm = (e) => {
     e.preventDefault();
     if (!!term) {
-      // dispatch(searchPodcast(term));
       history.push({
         pathname: '/search',
         search: `?query=${stringToQuery(term)}`
