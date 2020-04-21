@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { searchPodcast } from "../store/fetchActions";
@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const searchValue = queryString.parse(location.search)
     dispatch(searchPodcast(searchValue.query))
-  }, [location])
+  }, [location, dispatch])
 
   return (
     <div>
