@@ -14,15 +14,15 @@ const Message = ({ message }) => {
   useEffect(() => {
     setOpen(true)
     setTimeout(() => {
-      removeMessage()
+      removeMessageAndCloseSnack()
     }, 2500);
   }, [dispatch, message]);
 
   const handleClose = () => {
-    removeMesssage()
+    removeMessageAndCloseSnack()
   }
 
-  const removeMessage = () => {
+  const removeMessageAndCloseSnack = () => {
     setOpen(false)
     dispatch(removeMessage(message));
   }
