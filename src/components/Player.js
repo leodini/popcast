@@ -12,6 +12,7 @@ const Player = () => {
   const audio = useSelector((state) => state.episodeReducer.episode.audio);
   const maybe_audio_invalid = useSelector((state) => state.episodeReducer.episode.maybe_audio_invalid);
   const audio_length = useSelector((state) => state.episodeReducer.episode.audio_length_sec);
+  const queue = useSelector((state) => state.episodeReducer.queue)
 
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ const Player = () => {
 
   useEffect(() => {
     getPercentage(currentTime);
-  }, [percentage, currentTime, getPercentage]);
+  }, [percentage, currentTime]);
 
   return (
     <>
