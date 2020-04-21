@@ -19,7 +19,9 @@ const Home = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    //parses the query in the url and returns an object
     const searchValue = queryString.parse(location.search)
+    //dispatches the value of the search
     dispatch(searchPodcast(searchValue.query))
   }, [location, dispatch])
 
