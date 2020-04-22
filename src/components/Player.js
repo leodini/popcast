@@ -8,10 +8,10 @@ const Player = () => {
   const [percentage, setPercentage] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  const title = useSelector((state) => state.episodeReducer.episode.title);
-  const audio = useSelector((state) => state.episodeReducer.episode.audio);
-  const maybe_audio_invalid = useSelector((state) => state.episodeReducer.episode.maybe_audio_invalid);
-  const audio_length = useSelector((state) => state.episodeReducer.episode.audio_length_sec);
+  const title = useSelector((state) => state.episodeReducer.currentEpisode.title);
+  const audio = useSelector((state) => state.episodeReducer.currentEpisode.audio);
+  const maybe_audio_invalid = useSelector((state) => state.episodeReducer.currentEpisode.maybe_audio_invalid);
+  const audio_length = useSelector((state) => state.episodeReducer.currentEpisode.audio_length_sec);
   const queue = useSelector((state) => state.episodeReducer.queue)
 
   const dispatch = useDispatch();

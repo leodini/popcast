@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Podcast from "./pages/Podcast";
-import Search from './pages/Search'
+import PodcastSearch from './pages/PodcastSearch'
 
 export default function Routes() {
   return (
@@ -11,7 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/podcast/:id" component={Podcast} />
-        <Route path="/search" component={Search} />
+        <Route path="/search" component={PodcastSearch} />
       </Switch>
     </BrowserRouter>
   );

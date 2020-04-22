@@ -1,6 +1,6 @@
 import api from "../../api";
 import { podcasts } from "../ducks/podcastsReducer";
-import { podcast } from "../ducks/podcastReducer";
+import { podcast, episodeList } from "../ducks/podcastReducer";
 import { addMessage } from "../ducks/messageReducer";
 
 //fetch best podcasts of the home page
@@ -14,11 +14,14 @@ export const fetchBestPodcasts = () => {
 };
 
 //fetch the list of episodes for a podcast
-export const fetchPodcast = (podcastId) => {
+export const fetchPodcast = (podcastId, next_episode_pub_date = '') => {
   return (dispatch) => {
     api
-      .get(`/podcasts/${podcastId}`)
-      .then((res) => dispatch(podcast(res.data)))
+      .get(`/podcasts/${podcastId}?next_episode_pub_date=${next_episode_pub_date}`)
+      .then((res) => {
+        dispatch(podcast(res.data))
+        res.data.episodes.map(episode => dispatch(episodeList(episode)))
+      })
       .catch((err) => dispatch(addMessage(err.message)));
   };
 };

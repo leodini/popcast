@@ -9,9 +9,15 @@ import "./styles.css";
 import { addMessage } from "../store/ducks/messageReducer";
 
 const Podcast = () => {
+
   const params = useParams();
+
   const podcast = useSelector((state) => state.podcastReducer.podcast);
-  const episodes = useSelector((state) => state.podcastReducer.podcast.episodes);
+  const episodes = useSelector((state) => state.podcastReducer.episodeList);
+  //next_episode_pub_date is used to set the pagination
+  const next_episode_pub_date = useSelector((state) => state.podcastReducer.podcast.next_episode_pub_date);
+
+
   const dispatch = useDispatch();
 
   const getEpisode = (episode) => {
@@ -22,6 +28,10 @@ const Podcast = () => {
     dispatch(addEpisodeToQueue(episode));
     dispatch(addMessage(`${episode.title} added to queue`));
   };
+
+  const handleLoadMore = () => {
+    dispatch(fetchPodcast(params.id, next_episode_pub_date))
+  }
 
   useEffect(() => {
     dispatch(fetchPodcast(params.id));
@@ -47,6 +57,8 @@ const Podcast = () => {
                 getEpisode={getEpisode}
               />
             ))}
+
+        <button onClick={handleLoadMore}>load more</button>
 
         </div>
         
