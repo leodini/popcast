@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Message from "./Message";
+import Message from "../Message";
 
 const Messages = () => {
   const messages = useSelector((state) => state.messageReducer.messages);

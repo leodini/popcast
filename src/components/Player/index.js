@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
-import { addMessage } from "../store/ducks/messageReducer";
-import "./styles.css";
+import { addMessage } from "../../store/ducks/messageReducer";
+import "../styles.css";
 
 const Player = () => {
   const [percentage, setPercentage] = useState(0);

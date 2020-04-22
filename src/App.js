@@ -5,7 +5,6 @@ import Routes from "./Routes";
 import Messages from "./components/Messages";
 import Player from "./components/Player";
 import Title from './components/Title'
-// import Header from "./components/Header";
 import "./App.css";
 
 function App() {

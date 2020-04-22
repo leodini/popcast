@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import { MdQueueMusic } from "react-icons/md";
-import "./styles.css";
+import "../styles.css";
 
 const Episode = ({ episode, getEpisode, addToQueue }) => {
   return (

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useHistory } from 'react-router-dom'
-import { stringToQuery } from '../utils/queryString'
-import "./styles.css";
+import { stringToQuery } from '../../utils/queryString'
+import "../styles.css";
 
 const Search = () => {
   const [term, setTerm] = useState("");

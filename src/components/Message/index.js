@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeMessage } from "../store/ducks/messageReducer";
+import { removeMessage } from "../../store/ducks/messageReducer";
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import { MdClose } from 'react-icons/md'
