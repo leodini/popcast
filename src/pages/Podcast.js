@@ -10,12 +10,7 @@ const Podcast = () => {
 
   const params = useParams();
 
-  const podcast = useSelector((state) => state.podcastReducer.podcast);
-  const episodes = useSelector((state) => state.podcastReducer.episodeList);
-  
-  //next_episode_pub_date is used to set the pagination
-  const next_episode_pub_date = useSelector((state) => state.podcastReducer.podcast.next_episode_pub_date);
-
+  const { podcast, episodeList, next_episode_pub_date } = useSelector((state) => state.podcastReducer);
 
   const dispatch = useDispatch();
 
@@ -49,8 +44,8 @@ const Podcast = () => {
 
         <div className="episode-container">
 
-          {episodes &&
-            episodes.map((episode) => (
+          {episodeList &&
+            episodeList.map((episode) => (
               <Episode
                 key={episode.id}
                 addToQueue={addToQueue}

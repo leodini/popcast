@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Podcast from "./pages/Podcast";
-import PodcastSearch from './pages/PodcastSearch'
+import { Home, Podcast, PodcastSearch } from "./pages";
 
 export default function Routes() {
   return (
