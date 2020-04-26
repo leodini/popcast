@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
-import { addMessage } from "../../store/ducks/messageReducer";
-import "../styles.css";
+import { addMessage } from "../../store/ducks";
+import styles from './Player.module.css'
 
-const Player = () => {
+const Player = () => {  
   const [percentage, setPercentage] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -43,9 +43,12 @@ const Player = () => {
     getPercentage(currentTime);
   }, [percentage, currentTime]);
 
+  if(!title){
+    return ''
+  }
+
   return (
     <>
-      {!maybe_audio_invalid ? (
         <div style={{ textAlign: "center" }}>
           <div id="cs_audioplayer">
             <span
@@ -133,8 +136,6 @@ const Player = () => {
             />
           </div>
         </div>
-      ) : null}
-
       <audio ref={audioRef} />
     </>
   );

@@ -1,3 +1,7 @@
+export { default as podcastReducer } from './podcastReducer'
+export { default as podcastsReducer } from './podcastsReducer'
+export { default as messageReducer } from './messageReducer'
+export { default as episodeReducer } from './episodeReducer'
 export { addEpisode, addEpisodeToQueue } from './episodeReducer'
 export { addMessage, removeMessage } from './messageReducer'
 export { episodeList, podcast } from './podcastReducer'

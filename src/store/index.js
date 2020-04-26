@@ -1,8 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import podcastsReducer from "./ducks/podcastsReducer";
-import podcastReducer from "./ducks/podcastReducer";
-import messageReducer from "./ducks/messageReducer";
-import episodeReducer from "./ducks/episodeReducer";
+import { podcastsReducer, podcastReducer, messageReducer, episodeReducer } from './ducks'
 
 export default configureStore({
   reducer: {

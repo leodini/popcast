@@ -1,7 +1,5 @@
 import api from "../../api";
-import { podcasts } from "../ducks/podcastsReducer";
-import { podcast, episodeList } from "../ducks/podcastReducer";
-import { addMessage } from "../ducks/messageReducer";
+import { podcasts, podcast, episodeList, addMessage } from "../ducks";
 
 //fetch best podcasts of the home page
 export const fetchBestPodcasts = () => {
