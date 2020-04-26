@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchBestPodcasts } from "../store/fetchActions";
-import Podcast from "../components/Podcast";
-import Header from '../components/Header'
+import { Podcast, Header } from "../components";
 import "./styles.css";
 
 const Home = () => {

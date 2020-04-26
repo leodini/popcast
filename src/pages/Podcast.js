@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../store/fetchActions";
 import { addEpisode, addEpisodeToQueue } from "../store/ducks/episodeReducer";
-import Episode from "../components/Episode";
-import Header from '../components/Header'
+import { Episode, Header } from "../components";
 import "./styles.css";
 import { addMessage } from "../store/ducks/messageReducer";
 

@@ -6,9 +6,7 @@ import { useDispatch } from "react-redux";
 import { searchPodcast } from "../store/fetchActions";
 import queryString from 'query-string'
 
-import Podcast from "../components/Podcast";
-import Header from '../components/Header'
-
+import { Podcast, Header } from "../components";
 import "./styles.css";
 
 const Home = () => {

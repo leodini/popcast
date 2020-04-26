@@ -4,7 +4,6 @@ import { removeMessage } from "../../store/ducks/messageReducer";
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import { MdClose } from 'react-icons/md'
-// import "./styles.css";
 
 const Message = ({ message }) => {
   const [open, setOpen] = useState(false)
