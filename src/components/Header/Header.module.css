@@ -1,0 +1,11 @@
+.title{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--main-color);
+    margin: 15px;
+    text-decoration: none;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

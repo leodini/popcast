@@ -11,3 +11,6 @@ body{
   background: #1f1f23;
 }
 
+:root {
+  --main-color: #F62459;
+}

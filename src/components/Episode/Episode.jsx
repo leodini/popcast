@@ -1,12 +1,12 @@
 import React from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import { MdQueueMusic } from "react-icons/md";
-import "../styles.css";
+import styles from './Episode.module.css'
 
 const Episode = ({ episode, getEpisode, addToQueue }) => {
   return (
-    <div className="episodes">
-      <span className="episode-title">{episode.title}</span>
+    <div className={styles.episodes}>
+      <span className={styles.episodeTitle}>{episode.title}</span>
       <FaPlayCircle
         onClick={() => getEpisode(episode)}
         style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer" }}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
 import { addMessage } from "../../store/ducks/messageReducer";
@@ -7,6 +7,8 @@ import "../styles.css";
 const Player = () => {
   const [percentage, setPercentage] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+
+  const audioRef = useRef(null)
 
   const title = useSelector((state) => state.episodeReducer.currentEpisode.title);
   const audio = useSelector((state) => state.episodeReducer.currentEpisode.audio);
@@ -133,9 +135,7 @@ const Player = () => {
         </div>
       ) : null}
 
-      {/* <audio controls>
-        <source src="path-to-music.mp3" type="audio/mpeg" />
-      </audio> */}
+      <audio ref={audioRef} />
     </>
   );
 };

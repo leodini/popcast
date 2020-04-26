@@ -14,6 +14,7 @@ const Podcast = () => {
 
   const podcast = useSelector((state) => state.podcastReducer.podcast);
   const episodes = useSelector((state) => state.podcastReducer.episodeList);
+  
   //next_episode_pub_date is used to set the pagination
   const next_episode_pub_date = useSelector((state) => state.podcastReducer.podcast.next_episode_pub_date);
 
@@ -36,6 +37,8 @@ const Podcast = () => {
   useEffect(() => {
     dispatch(fetchPodcast(params.id));
   }, [dispatch, params.id]);
+
+  // TODO: make pagination
 
   return (
     <>

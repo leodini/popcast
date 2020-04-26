@@ -1,8 +1,9 @@
 import React from "react";
+import styles from './Podcast.module.css'
 
 const Podcast = ({ podcast }) => {
   return (
-    <div className="podcastItem">
+    <div className={styles.podcastItem}>
       <img src={podcast.image} alt={podcast.title} />
     </div>
   );

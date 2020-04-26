@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useHistory } from 'react-router-dom'
 import { stringToQuery } from '../../utils/queryString'
-import "../styles.css";
+import styles from './Search.module.css'
 
 const Search = () => {
   const [term, setTerm] = useState("");
@@ -22,12 +22,12 @@ const Search = () => {
   return (
     <form onSubmit={handleTerm}>
       <input
-        className="search-input"
+        className={styles.searchInput}
         type="text"
         placeholder="procure seu podcast favorito"
         onChange={(e) => setTerm(e.target.value)}
       />
-      <button className="button-search" type="submit">
+      <button className={styles.buttonSearch} type="submit">
         <FaSearch
           style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer" }}
         />
