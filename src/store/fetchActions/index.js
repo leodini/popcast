@@ -13,11 +13,11 @@ export const fetchBestPodcasts = () => {
 //fetch the list of episodes for a podcast
 export const fetchPodcast = (podcastId, next_episode_pub_date = '') => {
   return async(dispatch) => {
-    let optionForPagination = next_episode_pub_date ? `?next_episode_pub_date=${next_episode_pub_date}` : ''
+    let optionForPagination = !!next_episode_pub_date ? `?next_episode_pub_date=${next_episode_pub_date}` : ''
     let response = await api.get(`/podcasts/${podcastId}${optionForPagination}`)
     const { data } = response
     dispatch(podcast(data))
-    data.episodes.map(episode => dispatch(episodeList(episode)))
+    dispatch(episodeList(data.episodes))
   };
 };
 

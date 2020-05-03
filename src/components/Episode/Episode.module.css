@@ -7,4 +7,9 @@
 .episodeTitle{
     color: #fff;
     margin: 5px;
+    text-decoration: none;
+}
+
+.episodeTitle:hover{
+    color: var(--main-color)
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../../store/fetchActions";
@@ -7,10 +7,12 @@ import "./styles.css";
 import { addMessage, addCurrentEpisode, addEpisodeToQueue } from "../../store/ducks";
 
 const Podcast = () => {
+  const [ currentPage, setCurrentPage ] = useState(0)
 
   const params = useParams();
 
-  const { podcast, episodeList, next_episode_pub_date } = useSelector((state) => state.podcastReducer);
+  const { podcast, episodeList } = useSelector((state) => state.podcastReducer);
+  const { next_episode_pub_date } = useSelector(state => state.podcastReducer.podcast)
 
   const dispatch = useDispatch();
 
@@ -25,6 +27,7 @@ const Podcast = () => {
 
   const loadMoreEpisodes = () => {
     dispatch(fetchPodcast(params.id, next_episode_pub_date))
+    setCurrentPage(currentPage + 1)
   }
 
   useEffect(() => {
@@ -44,8 +47,8 @@ const Podcast = () => {
 
         <div className="episode-container">
 
-          {episodeList &&
-            episodeList.map((episode) => (
+          {episodeList[currentPage] &&
+            episodeList[currentPage].map((episode) => (
               <Episode
                 key={episode.id}
                 addToQueue={addToQueue}
