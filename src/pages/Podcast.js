@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchPodcast } from "../store/fetchActions";
 import { Episode, Header } from "../components";
 import "./styles.css";
-import { addMessage, addEpisode, addEpisodeToQueue } from "../store/ducks";
+import { addMessage, addCurrentEpisode, addEpisodeToQueue } from "../store/ducks";
 
 const Podcast = () => {
 
@@ -15,15 +15,15 @@ const Podcast = () => {
   const dispatch = useDispatch();
 
   const getEpisode = (episode) => {
-    dispatch(addEpisode(episode));
+    dispatch(addCurrentEpisode(episode));
   };
 
-  const addToQueue = (episode) => {
+  const addEpisodeToQueue = (episode) => {
     dispatch(addEpisodeToQueue(episode));
     dispatch(addMessage(`${episode.title} added to queue`));
   };
 
-  const handleLoadMore = () => {
+  const loadMoreEpisodes = () => {
     dispatch(fetchPodcast(params.id, next_episode_pub_date))
   }
 
@@ -48,13 +48,13 @@ const Podcast = () => {
             episodeList.map((episode) => (
               <Episode
                 key={episode.id}
-                addToQueue={addToQueue}
+                addEpisodeToQueue={addEpisodeToQueue}
                 episode={episode}
                 getEpisode={getEpisode}
               />
             ))}
 
-        <button onClick={handleLoadMore}>load more</button>
+        <button onClick={loadMoreEpisodes}>load more</button>
 
         </div>
         

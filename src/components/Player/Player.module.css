@@ -1,18 +1,18 @@
-.cs_audio_current_time{
+/* .cs_audio_current_time{
     color: var(--main-color);
 }
 
-#cs_audio {
+.cs_audio {
     display: none;
 }
 
-#cs_audioplayer {
+.cs_audioplayer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
-
+    height: 50px !important;
     background-color: #18181b;
     padding: 12px;
     padding-top: 4px;
@@ -44,19 +44,24 @@
     z-index: 999;
     transition: 0.1s;
 }
-#cs_play_pause_btn {
+.cs_play_pause_btn {
     margin-left: 95px;
 }
 
-#cs_play_pause_btn i{
+.cs_play_pause_btn i{
     font-size: 1.45em;position: relative; cursor: pointer; vertical-align: middle;
     margin-bottom: 4px;
 }
 
 /* progress bar percentage */
-.filler{
+/* .filler{
     background: var(--main-color);
     height: 100%;
     border-radius: inherit;
     transition: width .2s ease-in;
 }
+
+.thumbnail{
+    height: 80px;
+    width: 80px;
+} */ 

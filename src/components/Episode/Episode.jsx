@@ -1,18 +1,21 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import { FaPlayCircle } from "react-icons/fa";
 import { MdQueueMusic } from "react-icons/md";
 import styles from './Episode.module.css'
 
-const Episode = ({ episode, getEpisode, addToQueue }) => {
+const Episode = ({ episode, getEpisode, addEpisodeToQueue }) => {
   return (
     <div className={styles.episodes}>
-      <span className={styles.episodeTitle}>{episode.title}</span>
+      <Link to={`/episode/${episode.id}`}>
+        <span className={styles.episodeTitle}>{episode.title}</span>
+      </Link>
       <FaPlayCircle
         onClick={() => getEpisode(episode)}
         style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer" }}
       />
       <MdQueueMusic
-        onClick={() => addToQueue(episode)}
+        onClick={() => addEpisodeToQueue(episode)}
         style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer" }}
       />
     </div>

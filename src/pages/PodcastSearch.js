@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { searchPodcast } from "../store/fetchActions";
 import queryString from 'query-string'
-
 import { Podcast, Header } from "../components";
 import "./styles.css";
 
