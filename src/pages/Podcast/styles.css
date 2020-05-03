@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.episode-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.podcast-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.podcast-title{
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+}
+

@@ -1,16 +1,16 @@
 import React from "react";
 import { Provider } from "react-redux";
+
+import { Header, Player, Title } from "./components";
 import store from "./store";
 import Routes from "./Routes";
-import { Messages, Player, Title } from "./components";
-import "./App.css";
+import "./Global.css";
 
 function App() {
   return (
     <Provider store={store}>
       <Title />
       <Routes />
-      <Messages />
       <Player />
     </Provider>
   );

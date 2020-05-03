@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { searchPodcast } from "../store/fetchActions";
 import queryString from 'query-string'
-import { Podcast, Header } from "../components";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+
+import { Podcast, Header } from "../../components";
+import { searchPodcast } from "../../store/fetchActions";
 import "./styles.css";
 
 const Home = () => {
-  const podcasts = useSelector((state) => state.podcastsReducer.podcasts);
+  const { podcasts } = useSelector((state) => state.podcastsReducer);
 
   const location = useLocation()
 
