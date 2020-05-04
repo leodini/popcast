@@ -30,11 +30,14 @@ const Podcast = () => {
     setCurrentPage(currentPage + 1)
   }
 
+  const showPreviousEpisodes = () => {
+    if (currentPage === 0) return
+    setCurrentPage(currentPage -1)
+  }
+
   useEffect(() => {
     dispatch(fetchPodcast(params.id));
   }, [dispatch, params.id]);
-
-  // TODO: make pagination
 
   return (
     <>
@@ -58,6 +61,7 @@ const Podcast = () => {
             ))}
 
         <button onClick={loadMoreEpisodes}>load more</button>
+        <button onClick={showPreviousEpisodes}>Previous</button>
 
         </div>
         

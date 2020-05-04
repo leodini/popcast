@@ -1,4 +1,4 @@
-import api from "../../api";
+import api from "../../helpers/api";
 import { podcasts, podcast, episodeList, episodeInfo } from "../ducks";
 
 //fetch best podcasts of the home page
