@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPodcast } from "../../store/fetchActions";
+
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+
 import { Episode, Header } from "../../components";
-import "./styles.css";
 import { addMessage, addCurrentEpisode, addEpisodeToQueue } from "../../store/ducks";
+import { fetchPodcast } from "../../store/fetchActions";
+import "./styles.css";
 
 const Podcast = () => {
   const [ currentPage, setCurrentPage ] = useState(0)
@@ -12,11 +15,11 @@ const Podcast = () => {
   const params = useParams();
 
   const { podcast, episodeList } = useSelector((state) => state.podcastReducer);
-  const { next_episode_pub_date } = useSelector(state => state.podcastReducer.podcast)
+  const { next_episode_pub_date } = useSelector((state) => state.podcastReducer.podcast)
 
   const dispatch = useDispatch();
 
-  const getEpisode = (episode) => {
+  const playEpisode = (episode) => {
     dispatch(addCurrentEpisode(episode));
   };
 
@@ -56,12 +59,20 @@ const Podcast = () => {
                 key={episode.id}
                 addToQueue={addToQueue}
                 episode={episode}
-                getEpisode={getEpisode}
+                playEpisode={playEpisode}
               />
             ))}
 
-        <button onClick={loadMoreEpisodes}>load more</button>
-        <button onClick={showPreviousEpisodes}>Previous</button>
+        <div className="button-container">
+          <MdChevronLeft style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer", height: '50px', width: '100px' }}
+          onClick={showPreviousEpisodes}>
+            load more
+          </MdChevronLeft>
+          <MdChevronRight style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer", height: '50px', width: '100px' }}
+          onClick={loadMoreEpisodes}>
+            Previous
+          </MdChevronRight>
+        </div>
 
         </div>
         

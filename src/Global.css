@@ -10,7 +10,9 @@
 }
 
 body{
-  background: #1f1f23;
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpaulchristomd.com%2Fwp-content%2Fuploads%2F2017%2F04%2Fpodcast-background.jpg&f=1&nofb=1);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 :root {

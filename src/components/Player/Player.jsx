@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
 import ReactHowler from 'react-howler'
@@ -8,32 +8,28 @@ import { addMessage } from "../../store/ducks";
 // import styles from './Player.module.css'
 
 const Player = () => {  
-  // const [currentTime, setCurrentTime] = useState(0);
+  const [ player, setPlayer ] = useState(null)
   const [ playing, setPlaying ] = useState(true)
   const [ initialized, setInitialized ] = useState(false)
-  const [ currentAudio, setCurrentAudio ] = useState(null)
   const [ loop, setLoop ] = useState(false)
   const [ volume, setVolume ] = useState(1.0)
+  const [ queueIndex, setQueueIndex ] = useState(0)
+  const [ currentAudio, setCurrentAudio ] = useState()
 
-  const { title, audio, audio_length_sec } = useSelector((state) => state.episodeReducer.currentEpisode);
   const queue = useSelector((state) => state.episodeReducer.queue)
 
   const dispatch = useDispatch();
 
-  // const getParsedTime = (time) => {
-  //   //checks if the time is a number
-  //   if (!isNaN(time)) {
-  //     //convert the time from seconds into minutes already formated
-  //     return (
-  //       Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
-  //     );
-  //   }
-  //   return "00:00";
-  // };
-
   useEffect(() => {
-    setCurrentAudio(audio)
-  }, [audio])
+    if(queue.length) setCurrentAudio(queue[queueIndex].audio)
+  }, [queue])
+
+
+  // useEffect(() => {
+  //   if (!!queue[queueIndex].title) {
+  //     dispatch(addMessage(`Now playing ${queue[queueIndex].title}`));
+  //   }
+  // }, [dispatch, queue[queueIndex].title]);
 
   const togglePlay = () => {
     setPlaying(!playing)
@@ -44,27 +40,21 @@ const Player = () => {
   }
 
   const onEnd = () => {
-    if (!queue) return setPlaying(false)
-    setCurrentAudio(queue[queue + 1].audio)
+    setQueueIndex(queueIndex + 1)
+    setCurrentAudio(queue[queueIndex])
   }
 
-  useEffect(() => {
-    if (!!title) {
-      dispatch(addMessage(`Now playing ${title}`));
-    }
-  }, [dispatch, title]);
-
-
-  if (initialized === true) {
+  if (initialized === false) {
     return (
       <div>
         <ReactHowler
-          src={currentAudio}
+          src={[currentAudio]}
           format={['mp3']}
           playing={playing}
           loop={loop}
           volume={volume}
           onEnd={onEnd}
+          ref={(ref) => setPlayer(ref)}
         />
         <button onClick={togglePlay}>{playing ? 'Pause' : 'Play'}</button>
         <button onClick={toggleLoop}>loop</button>

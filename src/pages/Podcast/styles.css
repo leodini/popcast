@@ -23,3 +23,6 @@
     margin: 5px;
 }
 
+.button-container{
+    display: flex;
+}

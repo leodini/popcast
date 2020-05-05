@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .title{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lobster', sans-serif;
     color: var(--main-color);
     margin: 15px;
     text-decoration: none;
+    font-size: 42px;
 }
 .container{
     display: flex;
