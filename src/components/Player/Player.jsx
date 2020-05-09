@@ -25,11 +25,11 @@ const Player = () => {
   }, [queue])
 
 
-  // useEffect(() => {
-  //   if (!!queue[queueIndex].title) {
-  //     dispatch(addMessage(`Now playing ${queue[queueIndex].title}`));
-  //   }
-  // }, [dispatch, queue[queueIndex].title]);
+  useEffect(() => {
+    if (!currentAudio) {
+      dispatch(addMessage(`Now playing ${currentAudio}`));
+    }
+  }, [dispatch]);
 
   const togglePlay = () => {
     setPlaying(!playing)
@@ -38,7 +38,7 @@ const Player = () => {
   const toggleLoop = () => {
     setLoop(!loop)
   }
-
+ 
   const onEnd = () => {
     setQueueIndex(queueIndex + 1)
     setCurrentAudio(queue[queueIndex])
@@ -79,16 +79,18 @@ const Player = () => {
 
       </div>
     )
-  } else {
+  } else { 
     return (
-      <div>
-        <button
-          className='full'
-          onClick={() => setInitialized(true)}
-        >
-          Initialize Auto Player
-        </button>
-      </div>
+      <>
+      </>
+      // <div>
+      //   <button
+      //     className='full'
+      //     onClick={() => setInitialized(true)}
+      //   >
+      //     Initialize Auto Player
+      //   </button>
+      // </div>
     )
   }
 };
