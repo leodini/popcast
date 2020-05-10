@@ -1,6 +1,6 @@
 import api from "../../helpers/api";
 import axios from 'axios'
-import { podcasts, podcast, episodeList, episodeInfo, search_results } from "../ducks";
+import { podcasts, podcast, episodeList, episodeInfo, search_results, set_recommendations } from "../ducks";
 
 //fetch best podcasts of the home page
 export const fetchBestPodcasts = () => {
@@ -49,7 +49,7 @@ export const fetchSingleEpisode = (episodeId) => {
 
 export const fetchRecommendations = (podcastId) => {
   return async(dispatch) => {
-    let response = await api.get(`/podcasts/${podcastId}/recommendations`)
-    console.log(response)
+    let { data: recommendations } = await api.get(`/podcasts/${podcastId}/recommendations`)
+    dispatch(set_recommendations(recommendations))
   }
 }

@@ -6,7 +6,7 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 import { Episode, Header } from "../../components";
 import { addMessage, addCurrentEpisode, addEpisodeToQueue } from "../../store/ducks";
-import { fetchPodcast } from "../../store/fetchActions";
+import { fetchPodcast, fetchRecommendations } from "../../store/fetchActions";
 import "./styles.css";
 
 const Podcast = () => {
@@ -40,6 +40,7 @@ const Podcast = () => {
 
   useEffect(() => {
     dispatch(fetchPodcast(params.id));
+    dispatch(fetchRecommendations(params.id))
   }, [dispatch, params.id]);
 
   return (

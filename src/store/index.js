@@ -3,7 +3,8 @@ import {
   podcastsReducer, 
   podcastReducer, 
   messageReducer, 
-  episodeReducer } from './ducks'
+  episodeReducer,
+  recommendationsReducer } from './ducks'
 
 export default configureStore({
   reducer: {
@@ -11,5 +12,6 @@ export default configureStore({
     podcastReducer,
     messageReducer,
     episodeReducer,
+    recommendationsReducer,
   },
 });
