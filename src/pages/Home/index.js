@@ -11,7 +11,7 @@ const Home = () => {
         <p className="title">Popcast</p>
         <p className="subtitle">A casa dos popcasts</p>
         <Search />
-        <img src={undraw} alt="podcast"/>
+        <img className="main-image" src={undraw} alt="podcast"/>
       </div>
     </div>
   );

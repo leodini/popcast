@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 import { Podcast, Header, SearchResults } from "../../components";
+import { Container, Row, Col } from 'react-bootstrap'
 import { searchPodcast } from "../../store/fetchActions";
 import "./styles.css";
 
@@ -26,24 +27,32 @@ const Home = () => {
     <div>
       <Header/>
         <div className="background">
-        {
-            podcasts && podcasts.map(podcast => (
-                <div className="grid-container" key={podcast.id}>
-                    <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: 'none' }}>
-                        <Podcast podcast={podcast} />
+          <Container>
+            <Col />
+            <Col>
+              <div className="flex-container">
+              {
+                  podcasts && podcasts.map(podcast => (
+                      <div className="grid-container" key={podcast.id}>
+                          <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: 'none' }}>
+                              <Podcast podcast={podcast} />
+                          </Link>
+                      </div>
+                  ))
+              }
+              </div>
+              {
+                search_results && search_results.map(result => (
+                  <div key={result.id} className="search-results">
+                    <Link to={`/podcast/${result.id}`} style={{ textDecoration: 'none' }}>
+                      <SearchResults episodeResult={result} />
                     </Link>
-                </div>
-            ))
-        }
-        {
-          search_results && search_results.map(result => (
-            <div className="search-results">
-              <Link to={`/podcast/${result.id}`} style={{ textDecoration: 'none' }}>
-                <SearchResults episodeResult={result} />
-              </Link>
-            </div>
-          ))
-        }
+                  </div>
+                ))
+              }
+          </Col>
+          <Col />
+        </Container>
       </div>
     </div>
   );

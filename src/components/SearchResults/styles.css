@@ -6,7 +6,7 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: 2px 2px 5px #ccc;
-    max-width: 800px;
+    max-width: 80%;
     margin-bottom: 20px;
 }
 
@@ -19,10 +19,13 @@
 
 .thumbnail-container{
     display: flex;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .thumbnail-container img{
-    max-width: 80px;
+    /* max-width: 80px; */
+    max-height: 80px;
 }
 
 .thumbnail-container .podcast-title{
@@ -34,4 +37,15 @@
     color: #666;
     font-size: 14px;
     margin-top: 5px;
+}
+
+.thumbnail-container .time-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-container .time-container .time-span{
+    color: #666;
+    font-size: 14px;
+    padding: 10px;
 }

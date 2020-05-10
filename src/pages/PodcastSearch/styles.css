@@ -1,7 +1,7 @@
-.grid-container{
-    display: inline-grid;
-    row-gap: 50px;
-    column-gap: 50px;
+.flex-container{
+    display: flex;
+    margin: 5px;
+    margin-bottom: 15px;
 }
 
 .background{
