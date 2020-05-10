@@ -7,7 +7,7 @@ import styles from './Header.module.css'
 const Header = ({title = 'Popcast'}) => {
   return (
     <div className={styles.container}>
-      <Link to="/">
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <h2 className={styles.title}>{title}</h2>
       </Link>
       <Search />

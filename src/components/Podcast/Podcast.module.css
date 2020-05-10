@@ -1,3 +1,21 @@
 .podcastItem{
     margin: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    max-width: 80px;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px #ccc;
+}
+
+.podcastItem img{
+    width: 100%;
+}
+
+.podcastItem .podcast_title{
+    color: #000;
+    font-size: 12px;
+    text-decoration: none !important;
 }

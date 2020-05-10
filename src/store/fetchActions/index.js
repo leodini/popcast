@@ -1,5 +1,6 @@
 import api from "../../helpers/api";
-import { podcasts, podcast, episodeList, episodeInfo } from "../ducks";
+import axios from 'axios'
+import { podcasts, podcast, episodeList, episodeInfo, search_results } from "../ducks";
 
 //fetch best podcasts of the home page
 export const fetchBestPodcasts = () => {
@@ -24,9 +25,17 @@ export const fetchPodcast = (podcastId, next_episode_pub_date = '') => {
 //search for a specific podcast author
 export const searchPodcast = (name) => {
   return async(dispatch) => {
-    let response = await api.get(`/typeahead?show_podcasts=1`, { params: { q: name }})
-    const { data } = response
-    dispatch(podcasts(data.podcasts))
+    function getPodcastArtist(){
+      return api.get(`/typeahead?show_podcasts=1`, { params: { q: name }})
+    }
+    function getPodcastEpisodes(){
+      return api.get('/search', { params: { q: name }})
+    }
+    axios.all([getPodcastArtist(), getPodcastEpisodes()])
+    .then(axios.spread(function(podcastArtist, podcastEpisode){
+      dispatch(podcasts(podcastArtist.data.podcasts))
+      dispatch(search_results(podcastEpisode.data.results))
+    }))
   };
 };
 

@@ -3,12 +3,13 @@ import queryString from 'query-string'
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
-import { Podcast, Header } from "../../components";
+import { Podcast, Header, SearchResults } from "../../components";
 import { searchPodcast } from "../../store/fetchActions";
 import "./styles.css";
 
 const Home = () => {
   const { podcasts } = useSelector((state) => state.podcastsReducer);
+  const { search_results } = useSelector(state => state.podcastsReducer)
 
   const location = useLocation()
 
@@ -24,17 +25,26 @@ const Home = () => {
   return (
     <div>
       <Header/>
-
+        <div className="background">
         {
             podcasts && podcasts.map(podcast => (
                 <div className="grid-container" key={podcast.id}>
-                    <Link to={`/podcast/${podcast.id}`}>
+                    <Link to={`/podcast/${podcast.id}`} style={{ textDecoration: 'none' }}>
                         <Podcast podcast={podcast} />
                     </Link>
                 </div>
             ))
         }
-
+        {
+          search_results && search_results.map(result => (
+            <div className="search-results">
+              <Link to={`/podcast/${result.id}`} style={{ textDecoration: 'none' }}>
+                <SearchResults episodeResult={result} />
+              </Link>
+            </div>
+          ))
+        }
+      </div>
     </div>
   );
 };

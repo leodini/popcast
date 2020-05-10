@@ -30,7 +30,7 @@ const Search = () => {
       />
       <button className={styles.buttonSearch} type="submit">
         <FaSearch
-          style={{ color: "#fff", cursor: "pointer" }}
+          style={{ color: "#f62459", cursor: "pointer" }}
         />
       </button>
     </form>
