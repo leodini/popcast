@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { convertTimeStamp } from '../../helpers/utils/convertTimeStamp'
 import { parseTime } from '../../helpers/utils/parseTime'
 import './styles.css'
 
@@ -9,7 +10,8 @@ const SearchResults = ({
     thumbnail, 
     podcast_title_original, 
     title_original,
-    audio_length_sec
+    audio_length_sec,
+    pub_date_ms
  }}) => {
 
     
@@ -24,6 +26,7 @@ const SearchResults = ({
                 </div>
             </div>
             <p className="description">{description_original.length < 200 ? `${description_original}` : `${description_original.substring(0, 200)}...`}</p>
+            <p className="date">{convertTimeStamp(pub_date_ms)}</p>
         </div>
     )
 }

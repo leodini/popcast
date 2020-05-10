@@ -46,3 +46,10 @@ export const fetchSingleEpisode = (episodeId) => {
     dispatch(episodeInfo(data))
   }
 }
+
+export const fetchRecommendations = (podcastId) => {
+  return async(dispatch) => {
+    let response = await api.get(`/podcasts/${podcastId}/recommendations`)
+    console.log(response)
+  }
+}

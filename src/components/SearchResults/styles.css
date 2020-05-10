@@ -17,6 +17,12 @@
     margin-bottom: 5px;
 }
 
+.episode-result-container .date{
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .thumbnail-container{
     display: flex;
     margin-top: 5px;
