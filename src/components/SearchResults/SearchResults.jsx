@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { convertTimeStamp } from '../../helpers/utils/convertTimeStamp'
 import { parseTime } from '../../helpers/utils/parseTime'
@@ -13,12 +14,15 @@ const SearchResults = ({
     audio_length_sec,
     pub_date_ms,
     publisher_original,
+    id
  }}) => {
 
     
     return(
         <div className="episode-result-container">
-            <p className="episode-title">{title_original}</p>
+            <Link to={`/episode/${id}`} style={{ textDecoration: 'none' }}>
+                <p className="episode-title">{title_original}</p>
+            </Link>
             <div className="thumbnail-container">
                 <img src={thumbnail} alt={title_original}/>
                 <div className="time-container">

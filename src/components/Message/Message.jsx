@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { removeMessage } from "../../store/ducks";
 import Snackbar from '@material-ui/core/Snackbar';
@@ -14,10 +14,12 @@ const Message = ({ message }) => {
     removeMessageAndCloseSnack()
   }
 
-  const removeMessageAndCloseSnack = () => {
-    setOpen(false)
-    dispatch(removeMessage(message));
-  }
+  const removeMessageAndCloseSnack = useCallback(
+    () => {
+      setOpen(false)
+      dispatch(removeMessage(message));
+    }, [setOpen, dispatch, message])
+      
   
   useEffect(() => {
     setOpen(true)

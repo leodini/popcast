@@ -26,8 +26,9 @@ const Player = () => {
   useEffect(() => {
     if (!currentAudio) {
       dispatch(addMessage(`Now playing ${currentAudio}`));
+      console.log(player)
     }
-  }, [dispatch, currentAudio]);
+  }, [dispatch, currentAudio, player]);
 
   const togglePlay = () => {
     setPlaying(!playing)

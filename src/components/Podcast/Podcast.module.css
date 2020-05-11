@@ -8,6 +8,11 @@
     max-height: 110px;
     background-color: #fff;
     box-shadow: 1px 1px 5px #ccc;
+    transition: scale .2s;
+}
+
+.podcastItem:hover{
+    scale: 1.2;
 }
 
 .podcastItem .thumb{

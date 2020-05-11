@@ -44,9 +44,7 @@ const Home = () => {
               {
                 search_results && search_results.map(result => (
                   <div key={result.id} className="search-results">
-                    <Link to={`/episode/${result.id}`} style={{ textDecoration: 'none' }}>
                       <SearchResults episodeResult={result} />
-                    </Link>
                   </div>
                 ))
               }
