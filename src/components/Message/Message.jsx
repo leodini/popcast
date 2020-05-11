@@ -9,15 +9,7 @@ const Message = ({ message }) => {
   const [open, setOpen] = useState(false)
   
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setOpen(true)
-    console.log(message)
-    setTimeout(() => {
-      removeMessageAndCloseSnack()
-    }, 2500);
-  }, [dispatch, message]);
-
+  
   const handleClose = () => {
     removeMessageAndCloseSnack()
   }
@@ -26,6 +18,15 @@ const Message = ({ message }) => {
     setOpen(false)
     dispatch(removeMessage(message));
   }
+  
+  useEffect(() => {
+    setOpen(true)
+    console.log(message)
+    setTimeout(() => {
+      removeMessageAndCloseSnack()
+    }, 2500);
+  }, [dispatch, message, removeMessageAndCloseSnack]);
+
 
   return (
     <div>

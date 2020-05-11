@@ -4,13 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import ReactHowler from 'react-howler'
 
 import { addMessage } from "../../store/ducks";
-// import cx from 'classnames'
-// import styles from './Player.module.css'
+import './Player.css'
 
 const Player = () => {  
   const [ player, setPlayer ] = useState(null)
   const [ playing, setPlaying ] = useState(true)
-  const [ initialized, setInitialized ] = useState(false)
   const [ loop, setLoop ] = useState(false)
   const [ volume, setVolume ] = useState(1.0)
   const [ queueIndex, setQueueIndex ] = useState(0)
@@ -22,14 +20,14 @@ const Player = () => {
 
   useEffect(() => {
     if(queue.length) setCurrentAudio(queue[queueIndex].audio)
-  }, [queue])
+  }, [queue, queueIndex])
 
 
   useEffect(() => {
     if (!currentAudio) {
       dispatch(addMessage(`Now playing ${currentAudio}`));
     }
-  }, [dispatch]);
+  }, [dispatch, currentAudio]);
 
   const togglePlay = () => {
     setPlaying(!playing)
@@ -44,9 +42,8 @@ const Player = () => {
     setCurrentAudio(queue[queueIndex])
   }
 
-  if (initialized === false) {
     return (
-      <div>
+      <div className="audioplayer-container">
         <ReactHowler
           src={[currentAudio]}
           format={['mp3']}
@@ -79,20 +76,6 @@ const Player = () => {
 
       </div>
     )
-  } else { 
-    return (
-      <>
-      </>
-      // <div>
-      //   <button
-      //     className='full'
-      //     onClick={() => setInitialized(true)}
-      //   >
-      //     Initialize Auto Player
-      //   </button>
-      // </div>
-    )
-  }
 };
 
 export default Player;

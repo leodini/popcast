@@ -3,12 +3,14 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 import Routes from "./Routes";
+import { Player } from './components'
 import "./Global.css";
 
 function App() {
   return (
     <Provider store={store}>
       <Routes />
+      <Player />
     </Provider>
   );
 }

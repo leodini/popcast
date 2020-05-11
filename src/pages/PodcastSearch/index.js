@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import queryString from 'query-string'
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { Container, Col } from 'react-bootstrap'
+import queryString from 'query-string'
 
 import { Podcast, Header, SearchResults } from "../../components";
-import { Container, Row, Col } from 'react-bootstrap'
 import { searchPodcast } from "../../store/fetchActions";
 import "./styles.css";
 
 const Home = () => {
   const { podcasts } = useSelector((state) => state.podcastsReducer);
-  const { search_results } = useSelector(state => state.podcastsReducer)
+  const { search_results } = useSelector((state) => state.podcastsReducer)
 
   const location = useLocation()
 
@@ -44,7 +44,7 @@ const Home = () => {
               {
                 search_results && search_results.map(result => (
                   <div key={result.id} className="search-results">
-                    <Link to={`/podcast/${result.id}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/episode/${result.id}`} style={{ textDecoration: 'none' }}>
                       <SearchResults episodeResult={result} />
                     </Link>
                   </div>

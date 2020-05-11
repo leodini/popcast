@@ -1,6 +1,12 @@
 import api from "../../helpers/api";
 import axios from 'axios'
-import { podcasts, podcast, episodeList, episodeInfo, search_results, set_recommendations } from "../ducks";
+import { 
+  podcasts, 
+  podcast, 
+  episodeList, 
+  episodeInfo, 
+  search_results, 
+  set_recommendations } from "../ducks";
 
 //fetch best podcasts of the home page
 export const fetchBestPodcasts = () => {

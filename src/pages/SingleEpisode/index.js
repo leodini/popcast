@@ -15,7 +15,7 @@ const SingleEpisode = () => {
     
     useEffect(() => {
         dispatch(fetchSingleEpisode(id))    
-    }, [])
+    }, [dispatch, id])
 
     return(
         <>

@@ -11,7 +11,8 @@ const SearchResults = ({
     podcast_title_original, 
     title_original,
     audio_length_sec,
-    pub_date_ms
+    pub_date_ms,
+    publisher_original,
  }}) => {
 
     
@@ -22,6 +23,7 @@ const SearchResults = ({
                 <img src={thumbnail} alt={title_original}/>
                 <div className="time-container">
                     <span className="podcast-title">{podcast_title_original}</span>
+                    <span className="publisher">By <strong>{publisher_original}</strong></span>
                     <span className="time-span">{parseTime(audio_length_sec)}</span>
                 </div>
             </div>
