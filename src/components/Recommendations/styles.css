@@ -47,3 +47,9 @@
     color: #666;
     font-size: 14px;
 }
+
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 31.5%;
+}
