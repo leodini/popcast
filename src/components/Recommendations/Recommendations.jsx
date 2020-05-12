@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { fetchRecommendations } from '../../store/fetchActions'
 import './styles.css'
 
-const Recommendations = ({ id, typeOfRecommendation }) => {
+const Recommendations = ({ id, typeOfRecommendation, heightToFixed }) => {
     const [scrollPosition, setScrollPosition] = useState(0)
     const [sticky, setSticky] = useState(false)
 
@@ -14,9 +14,9 @@ const Recommendations = ({ id, typeOfRecommendation }) => {
     const handleScroll = useCallback(() => {
             const position = window.pageYOffset
             setScrollPosition(position)
-            if(scrollPosition >= 86) setSticky(true)
-            if(scrollPosition <= 80) setSticky(false)
-        }, [scrollPosition])
+            if(scrollPosition >= heightToFixed) setSticky(true)
+            if(scrollPosition <= heightToFixed) setSticky(false)
+        }, [scrollPosition, heightToFixed])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true })

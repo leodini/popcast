@@ -1,0 +1,65 @@
+.unique-episode-container{
+    width: 95%;
+    background-color: #fff;
+    margin: 15px;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: column;
+    padding: 15px;
+    margin-right: 10px;
+    border-bottom: 1px solid #ccc;   
+
+}
+
+.unique-episode-container .unique-episode-title{
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.episode{
+    display: flex;
+    flex-direction: row;
+    max-height: 80px;
+    padding: 5px;
+    margin-bottom: 18px;
+}
+
+.episode img{
+    height: 70px;
+    max-width: 70px;
+}
+
+#title-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+#title-container .epi-title{
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.unique-episode-container .date{
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btn-play-container{
+    display: flex;
+    align-items: center;
+}
+
+#player-btn{
+    align-items: center;
+    color: #F62459;
+    width: 40px;
+}
+
+.btn-play-container .audio-length{
+    color: #666;
+    font-size: 14px;
+}

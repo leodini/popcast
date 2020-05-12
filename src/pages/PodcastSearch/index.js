@@ -49,7 +49,7 @@ const Home = () => {
             </div>
             <div id="col3">
               {
-                podcasts.length ? <Recommendations id={podcasts[0].id} typeOfRecommendation="podcast" /> : null
+                podcasts.length ? <Recommendations id={podcasts[0].id} typeOfRecommendation="podcast" HeightToFixed={86} /> : null
               }
             </div>
       </div>
