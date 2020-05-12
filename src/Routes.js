@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { Home, Podcast, PodcastSearch, SingleEpisode, Curated, JustListen } from "./pages";
-import { Messages, Title } from './components'
+import { Title } from './components'
 
 export default function Routes() {
   return (
@@ -16,7 +16,6 @@ export default function Routes() {
         <Route path="/justlisten" component={JustListen} />
       </Switch>
         <Title />
-        <Messages />
     </BrowserRouter>
   );
 }

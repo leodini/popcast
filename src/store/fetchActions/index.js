@@ -53,9 +53,16 @@ export const fetchSingleEpisode = (episodeId) => {
   }
 }
 
-export const fetchRecommendations = (podcastId) => {
+export const fetchRecommendations = (string, id) => {
   return async(dispatch) => {
-    let { data: recommendations } = await api.get(`/podcasts/${podcastId}/recommendations`)
-    dispatch(set_recommendations(recommendations))
+    if(string === 'podcast'){
+      let { data: recommendations } = await api.get(`/podcasts/${id}/recommendations`)
+      dispatch(set_recommendations(recommendations))
+    }
+    if(string === 'episode'){
+      let { data: recommendations } = await api.get(`/episodes/${id}/recommendations`)
+      dispatch(set_recommendations(recommendations[0]))
+    }
+    return
   }
 }

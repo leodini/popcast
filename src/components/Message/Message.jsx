@@ -23,11 +23,10 @@ const Message = ({ message }) => {
   
   useEffect(() => {
     setOpen(true)
-    console.log(message)
     setTimeout(() => {
       removeMessageAndCloseSnack()
     }, 2500);
-  }, [dispatch, message, removeMessageAndCloseSnack]);
+  }, [dispatch, removeMessageAndCloseSnack]);
 
 
   return (

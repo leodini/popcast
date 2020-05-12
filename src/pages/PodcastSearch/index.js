@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { Container, Col } from 'react-bootstrap'
 import queryString from 'query-string'
 
-import { Podcast, Header, SearchResults } from "../../components";
+import { Podcast, Header, SearchResults, Recommendations } from "../../components";
 import { searchPodcast } from "../../store/fetchActions";
 import "./styles.css";
 
@@ -27,10 +26,9 @@ const Home = () => {
     <div>
       <Header/>
         <div className="background">
-          <Container>
-            <Col />
-            <Col>
-              <div className="flex-container">
+            <div id="col1"></div>
+             <div id="col2">
+              <div className="flex">
               {
                   podcasts && podcasts.map(podcast => (
                       <div className="grid-container" key={podcast.id}>
@@ -48,9 +46,12 @@ const Home = () => {
                   </div>
                 ))
               }
-          </Col>
-          <Col />
-        </Container>
+            </div>
+            <div id="col3">
+              {
+                podcasts.length ? <Recommendations id={podcasts[0].id} recommendation="podcast" /> : null
+              }
+            </div>
       </div>
     </div>
   );

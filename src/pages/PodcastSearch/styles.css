@@ -1,9 +1,25 @@
-.flex-container{
+.flex{
     display: flex;
     margin: 5px;
     margin-bottom: 15px;
+    width: 50%;
 }
 
 .background{
     background-color: #f7f7f7;
+    width: 100%;
+    display: flex;
+}
+
+#col1{
+    width: 5%;
+}
+
+#col2{
+    width: 60%;
+}
+
+
+#col3{
+    width: 35%;
 }
