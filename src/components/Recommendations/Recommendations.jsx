@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom'
 import { fetchRecommendations } from '../../store/fetchActions'
 import './styles.css'
 
-const Recommendations = ({ id, recommendation }) => {
+const Recommendations = ({ id, typeOfRecommendation }) => {
     const [scrollPosition, setScrollPosition] = useState(0)
     const [sticky, setSticky] = useState(false)
 
     const dispatch = useDispatch()
 
-    const handleScroll = useCallback(
-        () => {
+    const handleScroll = useCallback(() => {
             const position = window.pageYOffset
             setScrollPosition(position)
             if(scrollPosition >= 86) setSticky(true)
@@ -29,8 +28,8 @@ const Recommendations = ({ id, recommendation }) => {
 
     
     useEffect(() => {
-        dispatch(fetchRecommendations(recommendation, id))
-    }, [dispatch, id, recommendation])
+        dispatch(fetchRecommendations(typeOfRecommendation, id))
+    }, [dispatch, id, typeOfRecommendation])
     
     const recommendationSelector = useSelector((state) => state.recommendationsReducer.recommendations?.recommendations)
 
@@ -41,7 +40,7 @@ const Recommendations = ({ id, recommendation }) => {
             {
                 recommendationSelector && recommendationSelector.map(recommendation => (
                     <div key={recommendation.id} className="recommendation">
-                        <Link to={`/podcast/${recommendation.id}`} style={{ textDecoration: 'none' }}>
+                        <Link to={`/${typeOfRecommendation}/${recommendation.id}`} style={{ textDecoration: 'none' }}>
                             <img className="recommend-thumb" src={recommendation.thumbnail} alt={recommendation.title}/>
                         </Link>
                         <div id="title-container">
@@ -56,18 +55,3 @@ const Recommendations = ({ id, recommendation }) => {
 }
 
 export default Recommendations
-
-
-// const [scrollPosition, setSrollPosition] = useState(0);
-// const handleScroll = () => {
-//     const position = window.pageYOffset;
-//     setSrollPosition(position);
-// };
-
-// useEffect(() => {
-//     window.addEventListener('scroll', handleScroll, { passive: true });
-
-//     return () => {
-//         window.removeEventListener('scroll', handleScroll);
-//     };
-// }, []);
