@@ -66,21 +66,21 @@ const Player = ({ current_playing }) => {
                 />
           </div>
           <div className='volume'>
-            <FaVolumeDown />
+            <FaVolumeDown className="vol-icon" />
             <label>
               <span className='slider-container'>
                 <input
                   type='range'
                   min='0'
                   max='1'
-                  step='.05'
+                  step='.01'
                   value={volume}
                   onChange={e => setVolume(parseFloat(e.target.value))}
                   style={{verticalAlign: 'bottom'}}
                 />
               </span>
             </label>
-              {volume.toFixed(2)}
+              {/* {volume.toFixed(2)} */}
           </div>
           
         </div>
