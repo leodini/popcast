@@ -74,7 +74,7 @@ const Podcast = () => {
           </div>
 
           <div id="col3">
-            <Recommendations id={podcast.id} typeOfRecommendation="podcast" heightToFixed={368} />
+            <Recommendations id={podcast.id} typeOfRecommendation="podcast" heightToFixed={378} />
           </div>
           {
             current_playing ? <Player current_playing={current_playing} /> : null

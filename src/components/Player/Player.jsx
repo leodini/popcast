@@ -1,42 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
-import ReactHowler from 'react-howler'
-
+// import ReactHowler from 'react-howler'
+import ReactPlayer from 'react-player'
 import './Player.css'
 
 const Player = ({ current_playing }) => {  
-
-  
   const [ player, setPlayer ] = useState(null)
   const [ playing, setPlaying ] = useState(true)
-  const [ loop, setLoop ] = useState(false)
   const [ volume, setVolume ] = useState(1.0)
-  const [ seek, setSeek ] = useState(0)
+  const [ played, setPlayed ] = useState(0)
 
   const togglePlay = () => {
     setPlaying(!playing)
   }
 
-  const toggleLoop = () => {
-    setLoop(!loop)
+  const handleSeekChange = e => {
+    setPlayed(parseFloat(e.target.value))
   }
+
+  const handleProgress = state => {
+    console.log('on progress', state)
+    setPlayed(state.playedSeconds)
+  }
+
   
-  const handleSeek = (e) => {
-    setSeek(e)
-    player.seek(seek)
-  }
-  if(!current_playing){
-    return null
-  }
     return (
       <div className="audioplayer-container">
-        <ReactHowler
-          src={[current_playing.audio]}
-          format={['mp3']}
+        <ReactPlayer
+          url={current_playing.audio}
           playing={playing}
-          loop={loop}
           volume={volume}
           ref={(ref) => setPlayer(ref)}
+          onProgress={handleProgress}
+          style={{display: 'none'}}
         />
 
         <div className="playing-info-container">
@@ -61,11 +57,11 @@ const Player = ({ current_playing }) => {
                 <input
                   className="player"
                   type='range'
-                  min='0'
-                  max={player ? player.duration() : '100'}
-                  step='.05'
-                  value={player ? player.seek() : null}
-                  onChange={e => handleSeek(e.target.value)}
+                  min={0}
+                  max={current_playing.audio_length_sec}
+                  step='any'
+                  value={played}
+                  onChange={handleSeekChange}
                   style={{verticalAlign: 'bottom'}}
                 />
           </div>
