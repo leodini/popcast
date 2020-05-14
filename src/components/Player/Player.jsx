@@ -44,7 +44,14 @@ const Player = ({ current_playing }) => {
 
         <div className="player">
           {
-            playing ? <FaPause className="play-pause" onClick={togglePlay} /> : <FaPlayCircle className="play-pause" onClick={togglePlay} />
+            playing ? <FaPause 
+                        size={'22px'} 
+                        className="play-pause" 
+                        onClick={togglePlay} /> : 
+                        
+                        <FaPlayCircle size={'22px'} 
+                          className="play-pause" 
+                          onClick={togglePlay} />
           }
           <div className='volume'>
             <label>
@@ -59,6 +66,11 @@ const Player = ({ current_playing }) => {
                   onChange={e => setVolume(parseFloat(e.target.value))}
                   style={{verticalAlign: 'bottom'}}
                 />
+              </span>
+              {volume.toFixed(2)}
+            </label>
+          </div>
+          <div className="player-slider">
                 <input
                   type='range'
                   min='0'
@@ -68,10 +80,6 @@ const Player = ({ current_playing }) => {
                   onChange={e => handleSeek(e.target.value)}
                   style={{verticalAlign: 'bottom'}}
                 />
-              </span>
-              {volume.toFixed(2)}
-              <button onClick={handleSeek}>seek</button>
-            </label>
           </div>
         </div>
       </div>

@@ -38,12 +38,14 @@ const SearchResults = ({
                 <div className="time-container">
                     <span className="podcast-title">{podcast_title_original}</span>
                     <span className="publisher">By <strong>{publisher_original}</strong></span>
-                    <span className="time-span">{parseTime(audio_length_sec)}</span>
+                    <p className="date">{convertTimeStamp(pub_date_ms)}</p>
                 </div>
             </div>
             <p className="description">{description_original.length < 200 ? `${description_original}` : `${description_original.substring(0, 200)}...`}</p>
-            <p className="date">{convertTimeStamp(pub_date_ms)}</p>
-            <FaPlayCircle id="player-btn" onClick={playEpisode} />
+            <div className="play-episode">
+                <FaPlayCircle size={'22px'} id="player-btn" onClick={playEpisode} />
+                <span className="time-span">{parseTime(audio_length_sec)}</span>
+            </div>
         </div>
     )
 }

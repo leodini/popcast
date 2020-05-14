@@ -71,5 +71,20 @@
     color: #666;
     font-size: 14px;
     margin-top: 3px;
+}
 
+#player-btn{
+    cursor: pointer;
+}
+
+.play-episode{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.play-episode .time-span{
+    color: #666;
+    font-size: 14px;
+    margin-top: 3px;
 }

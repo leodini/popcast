@@ -19,7 +19,7 @@ const Episode = ({ episode, playEpisode }) => {
             </div>
         </div> 
         <div className="btn-play-container">
-          <FaPlayCircle id="player-btn" onClick={() => playEpisode(episode)} />
+          <FaPlayCircle size={'22px'} id="player-btn" onClick={() => playEpisode(episode)} />
           <span className="audio-length">{parseTime(episode.audio_length_sec)}</span>
         </div>
     </div>
