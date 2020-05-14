@@ -3,8 +3,7 @@ import axios from 'axios'
 import { 
   podcasts, 
   podcast, 
-  episodeList, 
-  episodeInfo, 
+  episodeList,  
   search_results, 
   set_recommendations } from "../ducks";
 
@@ -24,7 +23,7 @@ export const fetchPodcast = (podcastId, next_episode_pub_date = '') => {
     let response = await api.get(`/podcasts/${podcastId}${optionForPagination}`)
     const { data } = response
     dispatch(podcast(data))
-    dispatch(episodeList(data.episodes))
+    data.episodes.map(episode => dispatch(episodeList(episode)))
   };
 };
 
@@ -49,7 +48,7 @@ export const fetchSingleEpisode = (episodeId) => {
   return async(dispatch) => {
     let response = await api.get(`/episodes/${episodeId}`)
     const { data } = response
-    dispatch(episodeInfo(data))
+    // dispatch(episodeInfo(data))
   }
 }
 

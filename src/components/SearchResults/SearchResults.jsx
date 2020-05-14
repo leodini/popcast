@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { FaPlayCircle } from 'react-icons/fa'
 
+import { addCurrentPlaying } from '../../store/ducks'
 import { convertTimeStamp } from '../../helpers/utils/convertTimeStamp'
 import { parseTime } from '../../helpers/utils/parseTime'
 import './styles.css'
@@ -16,6 +19,13 @@ const SearchResults = ({
     publisher_original,
     id
  }}) => {
+
+    const dispatch = useDispatch()
+
+
+    const playEpisode = (episode) => {
+        dispatch(addCurrentPlaying(episode));
+      };
 
     
     return(
@@ -33,6 +43,7 @@ const SearchResults = ({
             </div>
             <p className="description">{description_original.length < 200 ? `${description_original}` : `${description_original.substring(0, 200)}...`}</p>
             <p className="date">{convertTimeStamp(pub_date_ms)}</p>
+            <FaPlayCircle id="player-btn" onClick={playEpisode} />
         </div>
     )
 }

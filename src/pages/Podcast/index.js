@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOpenInBrowser } from "react-icons/md";
 import { FaApple, FaRss } from "react-icons/fa";
 
-import { Recommendations, Episode } from '../../components'
-import { SearchResults, Header } from "../../components";
-import { addMessage, addCurrentEpisode } from "../../store/ducks";
+import About from './About'
+import { Recommendations, Episode, Header, Player } from '../../components'
+import { addCurrentPlaying, addMessage } from "../../store/ducks";
 import { fetchPodcast, fetchRecommendations } from "../../store/fetchActions";
 import "./styles.css";
 
 const Podcast = () => {
-  const [ currentPage, setCurrentPage ] = useState(0)
-
   const params = useParams();
 
   const { podcast, episodeList } = useSelector((state) => state.podcastReducer);
   const { next_episode_pub_date } = useSelector((state) => state.podcastReducer.podcast)
+  const { current_playing } = useSelector((state) => state.episodeReducer)
 
   const dispatch = useDispatch();
 
   const playEpisode = (episode) => {
-    dispatch(addCurrentEpisode(episode));
+    dispatch(addCurrentPlaying(episode));
+    dispatch(addMessage(`now playing ${episode.title}`))
   };
 
   const loadMoreEpisodes = () => {
     dispatch(fetchPodcast(params.id, next_episode_pub_date))
-    setCurrentPage(currentPage + 1)
   }
 
   useEffect(() => {
@@ -59,10 +58,12 @@ const Podcast = () => {
         <div className="podcast-episodes-container">
           <div id="col1"></div>
           <div id="col2">
+            <About podcast={podcast} />
+
             <div id="episode-list-card">
               <p className="unique-episode-title">Previous Episodes</p>
               {
-                    episodeList.length && episodeList[0].map(result => (
+                    episodeList.length && episodeList.map(result => (
                       <div key={result.id} className="search-results">
                           <Episode episode={result} playEpisode={playEpisode} />
                       </div>
@@ -71,27 +72,14 @@ const Podcast = () => {
             </div>
             <button className="load-more-btn" onClick={loadMoreEpisodes}>Load more</button>
           </div>
+
           <div id="col3">
             <Recommendations id={podcast.id} typeOfRecommendation="podcast" heightToFixed={368} />
           </div>
+          {
+            current_playing && <Player current_playing={current_playing} />
+          }
         </div>
-
-
-      {/* 
-        <div className="button-container">
-          <MdChevronLeft style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer", height: '50px', width: '100px' }}
-          onClick={showPreviousEpisodes}>
-            load more
-          </MdChevronLeft>
-          <MdChevronRight style={{ marginLeft: "5px", color: "#F62459", cursor: "pointer", height: '50px', width: '100px' }}
-          onClick={loadMoreEpisodes}>
-            Previous
-          </MdChevronRight>
-        </div>
-
-        </div>
-        
-      </div> */}
     </>
   );
 };

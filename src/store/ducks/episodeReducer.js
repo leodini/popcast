@@ -1,16 +1,15 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-  queue: [],
-  episode_info: {}
+  episode_info: {},
+  current_playing: {}
 };
 
-export const addCurrentEpisode = createAction("ADD_CURRENT_EPISODE");
+export const addCurrentPlaying = createAction("ADD_CURRENT_PLAYING");
 export const addEpisodeToQueue = createAction("ADD_EPISODE_TO_QUEUE");
 export const episodeInfo = createAction("EPISODE_INFO");
 
 export default createReducer(INITIAL_STATE, {
-  [addCurrentEpisode.type]: (state, action) => ({...state, queue: [ action.payload, ...state.queue ]}), 
-  [addEpisodeToQueue.type]: (state, action) => ({...state, queue: [...state.queue, action.payload]}),
+  [addCurrentPlaying.type]: (state, action) => ({...state, current_playing: action.payload}), 
   [episodeInfo.type]: (state, action) => ({...state, episode_info: action.payload})
 });

@@ -9,5 +9,43 @@
     box-shadow: 0 2px 3px rgba(0,0,0,.1);
     position: fixed;
     bottom: 0;
-    max-height: 100px;
+    max-height: 150px;
+}
+
+.playing-info-container{
+    display: flex;
+    border-right: 1px solid #ccc;
+    height: 90%;
+    width: 40%;
+}
+
+.playing-info-container img{
+    width: 90px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.playing-info-container .playing-info .current-playing-artist{
+    margin-left: 4px;
+    color: #666;
+}
+
+.player{
+    display: flex;
+    margin-left: 22px;
+    align-items: center;
+}
+
+input[type=range]{
+    appearance: none;
+    border: 2px solid black;
+}
+
+.slider-container{
+    display: flex;
+    align-items: center;
+}
+
+.play-pause{
+    width: 100px;
 }
