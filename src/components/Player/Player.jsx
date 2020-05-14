@@ -5,6 +5,8 @@ import ReactHowler from 'react-howler'
 import './Player.css'
 
 const Player = ({ current_playing }) => {  
+
+  
   const [ player, setPlayer ] = useState(null)
   const [ playing, setPlaying ] = useState(true)
   const [ loop, setLoop ] = useState(false)
@@ -23,7 +25,9 @@ const Player = ({ current_playing }) => {
     setSeek(e)
     player.seek(seek)
   }
-
+  if(!current_playing){
+    return null
+  }
     return (
       <div className="audioplayer-container">
         <ReactHowler
@@ -48,14 +52,26 @@ const Player = ({ current_playing }) => {
                         size={'22px'} 
                         className="play-pause" 
                         onClick={togglePlay} /> : 
-                        
-                        <FaPlayCircle size={'22px'} 
-                          className="play-pause" 
-                          onClick={togglePlay} />
+                      <FaPlayCircle size={'22px'} 
+                        className="play-pause" 
+                        onClick={togglePlay} />
           }
+
+          <div className="player-slider">
+                <input
+                  className="player"
+                  type='range'
+                  min='0'
+                  max={player ? player.duration() : '100'}
+                  step='.05'
+                  value={player ? player.seek() : null}
+                  onChange={e => handleSeek(e.target.value)}
+                  style={{verticalAlign: 'bottom'}}
+                />
+          </div>
           <div className='volume'>
+            <FaVolumeDown />
             <label>
-              <FaVolumeDown />
               <span className='slider-container'>
                 <input
                   type='range'
@@ -67,20 +83,10 @@ const Player = ({ current_playing }) => {
                   style={{verticalAlign: 'bottom'}}
                 />
               </span>
-              {volume.toFixed(2)}
             </label>
+              {volume.toFixed(2)}
           </div>
-          <div className="player-slider">
-                <input
-                  type='range'
-                  min='0'
-                  max={player ? player.duration() : '100'}
-                  step='.05'
-                  value={player ? player.seek() : null}
-                  onChange={e => handleSeek(e.target.value)}
-                  style={{verticalAlign: 'bottom'}}
-                />
-          </div>
+          
         </div>
       </div>
     )

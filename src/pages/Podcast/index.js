@@ -77,7 +77,7 @@ const Podcast = () => {
             <Recommendations id={podcast.id} typeOfRecommendation="podcast" heightToFixed={368} />
           </div>
           {
-            current_playing && <Player current_playing={current_playing} />
+            current_playing ? <Player current_playing={current_playing} /> : null
           }
         </div>
     </>
