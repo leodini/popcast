@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { FaPlayCircle, FaPause, FaVolumeDown } from "react-icons/fa";
-// import ReactHowler from 'react-howler'
 import ReactPlayer from 'react-player'
-import './Player.css'
 
-const Player = ({ current_playing }) => {  
+import './Player.css'
+import { parseTime } from '../../helpers/utils/parseTime'
+
+const Player = ({ current_playing: {
+  audio,
+  title,
+  thumbnail,
+  audio_length_sec
+  }}) => {  
+
   const [ player, setPlayer ] = useState(null)
   const [ playing, setPlaying ] = useState(true)
   const [ volume, setVolume ] = useState(1.0)
@@ -22,12 +29,13 @@ const Player = ({ current_playing }) => {
     console.log('on progress', state)
     setPlayed(state.playedSeconds)
   }
-
   
+  if(!title) return null
+
     return (
       <div className="audioplayer-container">
         <ReactPlayer
-          url={current_playing.audio}
+          url={audio}
           playing={playing}
           volume={volume}
           ref={(ref) => setPlayer(ref)}
@@ -36,9 +44,9 @@ const Player = ({ current_playing }) => {
         />
 
         <div className="playing-info-container">
-          <img src={current_playing.thumbnail} alt={current_playing.title}/>
+          <img src={thumbnail} alt={title}/>
           <div className="playing-info">
-            <span className="current-playing-artist">{current_playing.title}</span>
+            <span className="current-playing-artist">{title}</span>
           </div>
         </div>
 
@@ -52,19 +60,20 @@ const Player = ({ current_playing }) => {
                         className="play-pause" 
                         onClick={togglePlay} />
           }
-
+          <span className="time-played">{parseTime(played)}</span>
           <div className="player-slider">
                 <input
                   className="player"
                   type='range'
                   min={0}
-                  max={current_playing.audio_length_sec}
+                  max={audio_length_sec}
                   step='any'
                   value={played}
                   onChange={handleSeekChange}
                   style={{verticalAlign: 'bottom'}}
                 />
           </div>
+          <span className="time-total">{parseTime(audio_length_sec)}</span>
           <div className='volume'>
             <FaVolumeDown className="vol-icon" />
             <label>
@@ -80,9 +89,7 @@ const Player = ({ current_playing }) => {
                 />
               </span>
             </label>
-              {/* {volume.toFixed(2)} */}
           </div>
-          
         </div>
       </div>
     )

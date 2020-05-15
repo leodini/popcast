@@ -71,7 +71,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 .player-slider{
-    margin-right: 22px;
+    margin-right: 10px;
 }
 
 .player-slider .player{
@@ -82,8 +82,20 @@ input[type=range]::-moz-range-thumb {
     display: flex;
     align-items: center;
     padding: 5px;
+    margin-left: 15px;
 }
 
 .vol-icon{
     color: #F62459;
+}
+
+.time-played{
+    color: #666;
+    font-size: 14px;
+}
+
+.time-total{
+    color: #666;
+    font-size: 14px;
+
 }
