@@ -12,14 +12,6 @@ const Header = ({ title = "Popcast" }) => {
         <h2 className={styles.title}>{title}</h2>
       </Link>
       <Search />
-      <div className={styles.navigation_container}>
-        <Link to="/curated" style={{ textDecoration: "none" }}>
-          <h2 className={styles.navigation}>Curated</h2>
-        </Link>
-        <Link to="/justlisten" style={{ textDecoration: "none" }}>
-          <h2 className={styles.navigation}>Just listen</h2>
-        </Link>
-      </div>
     </div>
   );
 };

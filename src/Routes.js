@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Home, Podcast, PodcastSearch, SingleEpisode, Curated, JustListen } from "./pages";
-import { Title } from './components'
+import { Home, Podcast, PodcastSearch, SingleEpisode } from "./pages";
+import { Title } from "./components";
 
 export default function Routes() {
   return (
@@ -12,10 +12,8 @@ export default function Routes() {
         <Route path="/podcast/:id" component={Podcast} />
         <Route path="/search" component={PodcastSearch} />
         <Route path="/episode/:id" component={SingleEpisode} />
-        <Route path="/curated" component={Curated} />
-        <Route path="/justlisten" component={JustListen} />
       </Switch>
-        <Title />
+      <Title />
     </BrowserRouter>
   );
 }

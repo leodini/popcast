@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
-import { stringToQuery } from '../../helpers/utils/queryString'
-import styles from './Search.module.css'
+import { stringToQuery } from "../../helpers/utils/queryString";
+import styles from "./Search.module.css";
 
 const Search = () => {
   const [term, setTerm] = useState("");
-  
-  const history = useHistory()
+
+  const history = useHistory();
 
   const handleTerm = (e) => {
     e.preventDefault();
     if (!!term) {
       history.push({
-        pathname: '/search',
-        search: `?query=${stringToQuery(term)}`
-      })
+        pathname: "/search",
+        search: `?query=${stringToQuery(term)}`,
+      });
     }
   };
 
   return (
-    <form onSubmit={handleTerm}>
+    <form className={styles.searchForm} onSubmit={handleTerm}>
       <input
         className={styles.searchInput}
         type="text"
@@ -29,9 +29,7 @@ const Search = () => {
         onChange={(e) => setTerm(e.target.value)}
       />
       <button className={styles.buttonSearch} type="submit">
-        <FaSearch
-          style={{ color: "#f62459", cursor: "pointer" }}
-        />
+        <FaSearch style={{ color: "#f62459", cursor: "pointer" }} />
       </button>
     </form>
   );

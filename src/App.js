@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 import Routes from "./Routes";
-import { Messages } from './components'
+import { Messages } from "./components";
 import "./Global.css";
 
 function App() {
