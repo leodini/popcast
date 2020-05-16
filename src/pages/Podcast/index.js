@@ -6,7 +6,6 @@ import { FaApple, FaRss } from "react-icons/fa";
 
 import About from './About'
 import { Recommendations, Episode, Header, Player } from '../../components'
-import { addCurrentPlaying, addMessage } from "../../store/ducks";
 import { fetchPodcast, fetchRecommendations } from "../../store/fetchActions";
 import "./styles.css";
 
@@ -19,16 +18,11 @@ const Podcast = () => {
 
   const dispatch = useDispatch();
 
-  const playEpisode = (episode) => {
-    dispatch(addCurrentPlaying(episode));
-    dispatch(addMessage(`now playing ${episode.title}`))
-  };
-
   const loadMoreEpisodes = () => {
     dispatch(fetchPodcast(params.id, next_episode_pub_date))
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     dispatch(fetchPodcast(params.id));
     dispatch(fetchRecommendations(params.id))
   }, [dispatch, params.id]);
@@ -65,7 +59,7 @@ const Podcast = () => {
               {
                     episodeList.length && episodeList.map(result => (
                       <div key={result.id} className="search-results">
-                          <Episode episode={result} playEpisode={playEpisode} />
+                          <Episode episode={result}/>
                       </div>
                     ))
               }
@@ -74,7 +68,7 @@ const Podcast = () => {
           </div>
 
           <div id="col3">
-            <Recommendations id={podcast.id} typeOfRecommendation="podcast" heightToFixed={378} />
+            <Recommendations id={podcast.id} typeOfRecommendation="podcast" heightToFixed={335} />
           </div>
           {
             current_playing && <Player current_playing={current_playing} />

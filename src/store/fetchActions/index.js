@@ -5,6 +5,7 @@ import {
   podcast, 
   episodeList,  
   search_results, 
+  episodeInfo,
   set_recommendations } from "../ducks";
 
 //fetch best podcasts of the home page
@@ -22,7 +23,9 @@ export const fetchPodcast = (podcastId, next_episode_pub_date = '') => {
     let optionForPagination = !!next_episode_pub_date ? `?next_episode_pub_date=${next_episode_pub_date}` : ''
     let response = await api.get(`/podcasts/${podcastId}${optionForPagination}`)
     const { data } = response
-    dispatch(podcast(data))
+    if(!next_episode_pub_date){
+      dispatch(podcast(data))
+    }
     data.episodes.map(episode => dispatch(episodeList(episode)))
   };
 };
@@ -48,7 +51,7 @@ export const fetchSingleEpisode = (episodeId) => {
   return async(dispatch) => {
     let response = await api.get(`/episodes/${episodeId}`)
     const { data } = response
-    // dispatch(episodeInfo(data))
+    dispatch(episodeInfo(data))
   }
 }
 

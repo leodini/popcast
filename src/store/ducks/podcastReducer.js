@@ -2,7 +2,7 @@ import { createAction, createReducer } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   podcast: {},
-  episodeList: []
+  episodeList: [],
 };
 
 export const podcast = createAction("PODCAST");

@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import queryString from 'query-string'
 
-import { Podcast, Header, SearchResults, Recommendations } from "../../components";
+import { Podcast, Header, SearchResults, Recommendations, Player } from "../../components";
 import { searchPodcast } from "../../store/fetchActions";
 import "./styles.css";
 
 const Home = () => {
   const { podcasts } = useSelector((state) => state.podcastsReducer);
   const { search_results } = useSelector((state) => state.podcastsReducer)
+  const { current_playing } = useSelector((state) => state.episodeReducer)
 
   const location = useLocation()
 
@@ -52,6 +53,9 @@ const Home = () => {
                 podcasts.length ? <Recommendations id={podcasts[0].id} typeOfRecommendation="podcast" heightToFixed={86} /> : null
               }
             </div>
+              {
+                current_playing && <Player current_playing={current_playing} />
+              }
       </div>
     </div>
   );

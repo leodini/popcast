@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 export const addMessage = createAction("ADD_MESSAGE");
 export const removeMessage = createAction("REMOVE_MESSAGE");
-
+ 
 export default createReducer(INITIAL_STATE, {
   [addMessage.type]: (state, action) => ({...state, messages: [...state.messages, action.payload]}),
   [removeMessage.type]: (state, action) => ({...state, messages: state.messages.filter((msg) => msg !== action.payload)}),
