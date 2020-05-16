@@ -5,9 +5,7 @@ import ReactPlayer from "react-player";
 import "./Player.css";
 import { parseTime } from "../../helpers/utils/parseTime";
 
-const Player = ({
-  current_playing: { audio, title, thumbnail, audio_length_sec },
-}) => {
+const Player = ({ current_playing }) => {
   const [player, setPlayer] = useState(null);
   const [playing, setPlaying] = useState(true);
   const [volume, setVolume] = useState(1.0);
@@ -22,7 +20,11 @@ const Player = ({
 
   const handleProgress = (state) => setPlayed(state.playedSeconds);
 
-  if (!title) return null;
+  const { audio, thumbnail, audio_length_sec } = current_playing;
+  const { title } = current_playing;
+  const { title_original } = current_playing;
+
+  if (!audio) return null;
 
   return (
     <div className="audioplayer-container">
@@ -36,9 +38,11 @@ const Player = ({
       />
 
       <div className="playing-info-container">
-        <img src={thumbnail} alt={title} />
+        <img src={thumbnail} alt={title || title_original} />
         <div className="playing-info">
-          <span className="current-playing-artist">{title}</span>
+          <span className="current-playing-artist">
+            {title || title_original}
+          </span>
         </div>
       </div>
 
