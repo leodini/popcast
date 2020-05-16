@@ -5,6 +5,7 @@ import queryString from 'query-string'
 
 import { Podcast, Header, SearchResults, Recommendations, Player } from "../../components";
 import { searchPodcast } from "../../store/fetchActions";
+import { reset } from '../../store/ducks'
 import "./styles.css";
 
 const Home = () => {
@@ -21,6 +22,10 @@ const Home = () => {
     const searchValue = queryString.parse(location.search)
     //dispatches the value of the search
     dispatch(searchPodcast(searchValue.query))
+
+    return () => {
+      dispatch(reset())
+    }
   }, [location, dispatch])
 
   return (
