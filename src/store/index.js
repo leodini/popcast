@@ -5,6 +5,7 @@ import {
   messageReducer,
   episodeReducer,
   recommendationsReducer,
+  genresReducer,
 } from "./ducks";
 
 export default configureStore({
@@ -14,5 +15,6 @@ export default configureStore({
     messageReducer,
     episodeReducer,
     recommendationsReducer,
+    genresReducer,
   },
 });

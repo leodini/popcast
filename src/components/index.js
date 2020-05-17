@@ -8,3 +8,4 @@ export { default as Search } from "./Search/Search";
 export { default as Title } from "./Title/Title";
 export { default as SearchResults } from "./SearchResults/SearchResults";
 export { default as Recommendations } from "./Recommendations/Recommendations";
+export { default as Genres } from "./Genres/Genres";
