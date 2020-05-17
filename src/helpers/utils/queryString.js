@@ -1,3 +1,3 @@
-export function stringToQuery(string){
-    return string.replace(' ', '+')
+export function stringToQuery(string) {
+  return string.replace(" ", "+");
 }

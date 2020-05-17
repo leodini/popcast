@@ -1,6 +1,6 @@
 import React from "react";
 
-import undraw from '../../assets/undraw.svg'
+import undraw from "../../assets/undraw.svg";
 import { Search } from "../../components";
 import "./styles.css";
 
@@ -11,7 +11,7 @@ const Home = () => {
         <p className="title">Popcast</p>
         <p className="subtitle">A casa dos popcasts</p>
         <Search />
-        <img className="main-image" src={undraw} alt="podcast"/>
+        <img className="main-image" src={undraw} alt="podcast" />
       </div>
     </div>
   );

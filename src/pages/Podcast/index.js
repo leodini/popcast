@@ -6,14 +6,20 @@ import { FaApple, FaRss } from "react-icons/fa";
 
 import About from "./About";
 import { Recommendations, Episode, Header, Player } from "../../components";
-import { fetchPodcast, fetchRecommendations } from "../../store/fetchActions";
+import {
+  fetchPodcast,
+  fetchRecommendations,
+  fetchGenres,
+} from "../../store/fetchActions";
 import { reset } from "../../store/ducks";
 import "./styles.css";
 
 const Podcast = () => {
   const params = useParams();
 
-  const { podcast, episodeList } = useSelector((state) => state.podcastReducer);
+  const { podcast, episodeList, genres } = useSelector(
+    (state) => state.podcastReducer
+  );
   const { next_episode_pub_date } = useSelector(
     (state) => state.podcastReducer.podcast
   );
@@ -28,11 +34,14 @@ const Podcast = () => {
   useEffect(() => {
     dispatch(fetchPodcast(params.id));
     dispatch(fetchRecommendations(params.id));
-
     return () => {
       dispatch(reset());
     };
   }, [dispatch, params.id]);
+
+  useEffect(() => {
+    dispatch(fetchGenres(podcast.genre_ids));
+  }, [podcast, dispatch]);
 
   return (
     <>

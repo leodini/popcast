@@ -40,7 +40,13 @@ const SingleEpisode = () => {
     audio_length_sec,
     thumbnail,
   } = episode;
-  const { title: podcast_title, thumbnail: podcast_thumbnail } = podcast;
+
+  const {
+    title: podcast_title,
+    thumbnail: podcast_thumbnail,
+    language,
+    country,
+  } = podcast;
 
   return (
     <>
@@ -64,6 +70,16 @@ const SingleEpisode = () => {
               </span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="about-this-episode">
+        <p className="about-this">ABOUT THIS EPISODE</p>
+        <img src={thumbnail} alt={title} className="thumb" />
+        <p className="episode-desc">{description}</p>
+        <div className="episode-info">
+          <span className="language-country">{language}</span>
+          <span className="language-country">{country}</span>
         </div>
       </div>
 

@@ -7,6 +7,7 @@ import {
   search_results,
   episodeInfo,
   set_recommendations,
+  genres,
 } from "../ducks";
 
 //fetch best podcasts of the home page
@@ -76,5 +77,16 @@ export const fetchRecommendations = (string, id) => {
       dispatch(set_recommendations(recommendations));
     }
     return;
+  };
+};
+
+export const fetchGenres = (genresArray = []) => {
+  return async (dispatch) => {
+    let response = await api.get("/genres");
+    response.data.genres.map((genre) => {
+      if (genresArray.includes(genre.id)) {
+        dispatch(genres(genre.name));
+      }
+    });
   };
 };
