@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlayCircle } from "react-icons/fa";
 import { MdLanguage, MdPlace } from "react-icons/md";
-
+import { Link } from 'react-router-dom'
 
 import { addCurrentPlaying, addMessage, reset } from "../../store/ducks";
 import { Header, Recommendations, Player, Genres } from "../../components";
 import { parseTime } from "../../helpers/utils/parseTime";
-import { converTimeStamp, convertTimeStamp } from '../../helpers/utils/convertTimeStamp'
+import { convertTimeStamp } from '../../helpers/utils/convertTimeStamp'
 import { fetchSingleEpisode } from "../../store/fetchActions";
 import "./styles.css";
 
@@ -47,6 +47,7 @@ const SingleEpisode = () => {
   const {
     title: podcast_title,
     thumbnail: podcast_thumbnail,
+    id: podcast_id,
     language,
     country,
     genre_ids,
@@ -56,15 +57,15 @@ const SingleEpisode = () => {
     <>
       <Header />
       <div className="top-section">
-        <div className="col-podcast-page"></div>
+        <div id="col-podcast-page"></div>
         <div id="podcast">
           <div className="podcast-title-and-thumb">
             <img src={podcast_thumbnail} alt={podcast_title} />
             <p className="podcast-title">{podcast_title}</p>
           </div>
-          <div id="info-container">
+          <div id="info-container-podcast">
             <p id="podcast-title">{title}</p>
-            <span>{convertTimeStamp(pub_date_ms)}</span>
+            <span className="pub-date-time">{convertTimeStamp(pub_date_ms)}</span>
 
             <div className="btn-play-container">
               <FaPlayCircle
@@ -93,7 +94,11 @@ const SingleEpisode = () => {
           <span className="language-country"><MdLanguage /> {language}</span>
           <span className="language-country"><MdPlace /> {country}</span>
         </div>
+        <div className="view-more">
+          <Link to={`/podcast/${podcast_id}`} style={{textDecoration: 'none'}} className="btn-view-more">View other episodes</Link>
+        </div>
       </div>
+
 
       <Recommendations
         id={id}
