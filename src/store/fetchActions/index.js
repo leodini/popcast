@@ -87,7 +87,6 @@ export const fetchGenres = (genresArray = []) => {
       if (genresArray.includes(genre.id)) {
         dispatch(genres(genre.name));
       }
-      return;
     });
   };
 };

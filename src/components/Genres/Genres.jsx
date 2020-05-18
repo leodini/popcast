@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { resetGenres } from "../../store/ducks";
 import { fetchGenres } from "../../store/fetchActions";
 import "./styles.css";
 
@@ -11,6 +12,10 @@ const Genres = ({ genresForPodcast }) => {
 
   useEffect(() => {
     dispatch(fetchGenres(genresForPodcast));
+
+    return () => {
+      dispatch(resetGenres());
+    };
   }, [genresForPodcast, dispatch]);
 
   return (

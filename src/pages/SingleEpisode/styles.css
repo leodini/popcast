@@ -1,60 +1,77 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400, 700);
 
-.container {
+
+
+.main-section{
   display: flex;
-  flex: 1;
-  width: 60%;
 }
 
-.container .img-container {
-  display: flex;
+.main-section .about-this-episode{
+  width: 100%;
+  background-color: #fff;
+  margin: 15px;
+  border-radius: 6px;
   flex-direction: column;
-  flex: 1;
-  max-width: 50%;
+  padding: 15px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 5px #ccc;
+  border: 1px solid #ccc;
+  height: 70%;
 }
 
-.container .img-container .button-container {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
-.description-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 50%;
-}
-
-.img-container .button {
-  background: transparent;
-  border: 2px solid #f62459;
-  margin-top: 10px;
-  padding: 8px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.img-container .button:hover {
-  background: #f62459;
-}
-
-.img {
-  max-width: 50%;
-}
-
-.title {
-  color: #fff;
+.about-this{
   font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-weight: 700;
+  color: #8e8e8e;
+  margin-bottom: 16px;
 }
 
-.desc {
-  color: #fff;
-  font-size: 14px;
-  width: 50%;
+.about-this-episode .thumb{
+  width: 110px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.about-this-episode .episode-desc{
+  color: #464646;
+  margin-bottom: 12px;
+}
+
+.col1{
+  width: 30%;
+}
+
+.language-country{
+  margin-right: 10px;
+  align-items: center;
+  color: #8e8e8e;
+}
+
+.podcast-title-and-thumb{
+  display: flex;
+}
+
+.podcast-title-and-thumb img{
+  width: 60px;
+  margin-right: 8px;
+}
+
+
+.col-podcast-page{
+  display: flex;
+  flex-direction: column;
+}
+
+.top-section #info-container{
+  display: flex;
+  flex-direction: column !important;
+  margin-top: 15px;
+} 
+
+.btn-play-container{
+  margin-top: 10px;
+}
+
+.btn-play-container .audio-length{
+  margin-left: 10px;
 }

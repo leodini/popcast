@@ -53,12 +53,14 @@ const Home = () => {
                 </div>
               ))}
           </div>
+          <div style={{ marginBottom: '150px'}}>
           {search_results &&
             search_results.map((result) => (
-              <div key={result.id} className="search-results">
+              <div key={result.id} className="">
                 <SearchResults episodeResult={result} />
               </div>
             ))}
+            </div>
         </div>
         <div id="col3">
           {podcasts.length ? (
