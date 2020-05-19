@@ -170,3 +170,14 @@
   margin-right: 10px;
   color: #8e8e8e;
 }
+
+@media only screen and (max-width: 1000px) {
+  #episode-list-card {
+    width: 150%;
+    margin-left: 0;
+  }
+  .about {
+    width: 150%;
+    margin-left: 0;
+  }
+}

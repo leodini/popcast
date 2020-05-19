@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <div className="container">
         <p className="title">Popcast</p>
-        <p className="subtitle">A casa dos popcasts</p>
+        <p className="subtitle">A casa dos podcasts</p>
         <Search />
         <img className="main-image" src={undraw} alt="podcast" />
       </div>

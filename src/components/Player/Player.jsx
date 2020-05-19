@@ -20,6 +20,8 @@ const Player = ({ current_playing }) => {
 
   const handleProgress = (state) => setPlayed(state.playedSeconds);
 
+  const mute = () => setVolume(0)
+
   const { audio, thumbnail, audio_length_sec } = current_playing;
   const { title } = current_playing;
   const { title_original } = current_playing;
@@ -71,7 +73,7 @@ const Player = ({ current_playing }) => {
         </div>
         <span className="time-total">{parseTime(audio_length_sec)}</span>
         <div className="volume">
-          <FaVolumeDown className="vol-icon" />
+          <FaVolumeDown onClick={mute} className="vol-icon" />
           <label>
             <span className="slider-container">
               <input

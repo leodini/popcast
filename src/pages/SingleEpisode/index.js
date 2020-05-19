@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlayCircle } from "react-icons/fa";
 import { MdLanguage, MdPlace } from "react-icons/md";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import { addCurrentPlaying, addMessage, reset } from "../../store/ducks";
 import { Header, Recommendations, Player, Genres } from "../../components";
 import { parseTime } from "../../helpers/utils/parseTime";
-import { convertTimeStamp } from '../../helpers/utils/convertTimeStamp'
+import { convertTimeStamp } from "../../helpers/utils/convertTimeStamp";
 import { fetchSingleEpisode } from "../../store/fetchActions";
 import "./styles.css";
 
@@ -65,7 +65,9 @@ const SingleEpisode = () => {
           </div>
           <div id="info-container-podcast">
             <p id="podcast-title">{title}</p>
-            <span className="pub-date-time">{convertTimeStamp(pub_date_ms)}</span>
+            <span className="pub-date-time">
+              {convertTimeStamp(pub_date_ms)}
+            </span>
 
             <div className="btn-play-container">
               <FaPlayCircle
@@ -82,30 +84,37 @@ const SingleEpisode = () => {
       </div>
 
       <div className="main-section">
-
         <div className="col1"></div>
 
-      <div className="about-this-episode">
-        <p className="about-this">ABOUT THIS EPISODE</p>
-        <img src={thumbnail} alt={title} className="thumb" />
-        <p className="episode-desc">{description}</p>
-        <div className="episode-info">
-          <Genres genresForPodcast={genre_ids} />
-          <span className="language-country"><MdLanguage /> {language}</span>
-          <span className="language-country"><MdPlace /> {country}</span>
+        <div className="about-this-episode">
+          <p className="about-this">ABOUT THIS EPISODE</p>
+          <img src={thumbnail} alt={title} className="thumb" />
+          <p className="episode-desc">{description}</p>
+          <div className="episode-info">
+            <Genres genresForPodcast={genre_ids} />
+            <span className="language-country">
+              <MdLanguage /> {language}
+            </span>
+            <span className="language-country">
+              <MdPlace /> {country}
+            </span>
+          </div>
+          <div className="view-more">
+            <Link
+              to={`/podcast/${podcast_id}`}
+              style={{ textDecoration: "none" }}
+              className="btn-view-more"
+            >
+              View other episodes
+            </Link>
+          </div>
         </div>
-        <div className="view-more">
-          <Link to={`/podcast/${podcast_id}`} style={{textDecoration: 'none'}} className="btn-view-more">View other episodes</Link>
-        </div>
-      </div>
 
-
-      <Recommendations
-        id={id}
-        typeOfRecommendation="episode"
-        heightToFixed={1000}
-      />
-
+        <Recommendations
+          id={id}
+          typeOfRecommendation="episode"
+          heightToFixed={1000}
+        />
       </div>
 
       {current_playing && <Player current_playing={current_playing} />}
