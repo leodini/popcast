@@ -25,3 +25,9 @@
   margin-top: 25px;
   height: 350px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .container .main-image {
+    height: 250px;
+  }
+}
