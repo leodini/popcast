@@ -1,12 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400, 700);
 
-
-
-.main-section{
+.main-section {
   display: flex;
 }
 
-.main-section .about-this-episode{
+.main-section .about-this-episode {
   width: 100%;
   background-color: #fff;
   margin: 15px;
@@ -19,89 +17,106 @@
   height: 70%;
 }
 
-.about-this{
+.about-this {
   font-size: 18px;
   font-weight: 700;
   color: #8e8e8e;
   margin-bottom: 16px;
 }
 
-.about-this-episode .thumb{
+.about-this-episode .thumb {
   width: 110px;
   border-radius: 4px;
   margin-bottom: 12px;
 }
 
-.about-this-episode .episode-desc{
+.about-this-episode .episode-desc {
   color: #464646;
   margin-bottom: 12px;
 }
 
-.col1{
+.col1 {
   width: 30%;
 }
 
-.language-country{
+.language-country {
   margin-right: 10px;
   align-items: center;
   color: #8e8e8e;
 }
 
-.podcast-title-and-thumb{
+.podcast-title-and-thumb {
   display: flex;
 }
 
-.podcast-title-and-thumb img{
+.podcast-title-and-thumb img {
   width: 60px;
   margin-right: 8px;
 }
 
-
-#col-podcast-page{
+#col-podcast-page {
   display: flex;
   flex-direction: column;
   width: 40%;
 }
 
-.top-section #info-container-podcast{
+.top-section #info-container-podcast {
   display: flex;
   flex-direction: column !important;
   margin-top: 15px;
-} 
+}
 
-.btn-play-container{
+.btn-play-container {
   margin-top: 10px;
 }
 
-.btn-play-container .audio-length{
+.btn-play-container .audio-length {
   margin-left: 10px;
 }
 
-.pub-date-time{
+.pub-date-time {
   color: #8e8e8e;
 }
 
-.view-more{
+.view-more {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 22px;
 }
 
-.view-more .btn-view-more{
-  background-color: rgba(0,0,0,.05);
-  color: rgba(0,0,0,.95);
-  opacity: .7;
-  border-color: rgba(0,0,0,.05);
+.view-more .btn-view-more {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
+  opacity: 0.7;
+  border-color: rgba(0, 0, 0, 0.05);
   cursor: pointer;
   height: 50px;
   padding: 12px;
   font-size: 16px;
-  transition: all .2s;
+  transition: all 0.2s;
   border-radius: 4px;
 }
 
-.view-more .btn-view-more:hover{
+.view-more .btn-view-more:hover {
   background-color: #f62459;
   color: #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+  .main-section .about-this-episode {
+    margin: 0;
+    width: 10050%;
+    margin-top: 16px;
+  }
+  .info-container-podcast {
+    display: flex;
+    flex-direction: row;
+  }
+  #podcast #podcast-title {
+    font-size: 18px;
+  }
+  #col-podcast-page {
+    width: 10px;
+  }
 }
