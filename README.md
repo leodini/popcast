@@ -1,9 +1,9 @@
 ## Popcast
 
-### About
+### `About`
 
 Web app made with javascript, Redux and React
 
-### Api
+### `Api`
 
 The api used for fetching data is the [Listennotes](https://www.listennotes.com/) api
