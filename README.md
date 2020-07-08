@@ -8,4 +8,6 @@ Web app made with javascript, Redux and React
 
 The api used for fetching data is the [Listennotes](https://www.listennotes.com/) api
 
-[Imgur](https://i.imgur.com/PriG2sW.png)
+![](images/popcast1.png)
+![](images/popcast2.png)
+![](images/popcast3.png)
