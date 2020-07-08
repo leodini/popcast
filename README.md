@@ -8,4 +8,4 @@ Web app made with javascript, Redux and React
 
 The api used for fetching data is the [Listennotes](https://www.listennotes.com/) api
 
-![alt text](https://imgur.com/PriG2sW)
+[Imgur](https://i.imgur.com/PriG2sW.png)
